@@ -10,6 +10,10 @@
     "build": "tsc",
     "test": "jest --coverage"
   },
+  "files": [
+    "build",
+    "!build/*.test.*"
+  ],
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
