@@ -1,6 +1,3 @@
-export function helloWorld() {
-  // hello world
-  return "hello world";
-}
+import JSONMetaSchema from "./meta-schema.json";
 
-export default helloWorld;
+export default JSONMetaSchema;
