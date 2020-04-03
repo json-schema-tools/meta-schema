@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/json-schema-tools/meta-schema/compare/1.0.0...1.0.1) (2020-04-03)
+
+
+### Bug Fixes
+
+* random change ([#6](https://github.com/json-schema-tools/meta-schema/issues/6)) ([9896d2f](https://github.com/json-schema-tools/meta-schema/commit/9896d2f3868c0b79a0311956a7102f813b4d1ff4))
+
 # 1.0.0 (2020-04-03)
 
 
