@@ -54,11 +54,13 @@ workflows:
     jobs:
       - test:
           filters: *filter-only-semantic-pr
+          context: sem-rel-json-schema-tools
 
   release:
     jobs:
       - test:
           filters: *filter-only-master
+          context: sem-rel-json-schema-tools
       - hold:
           filters: *filter-only-master
           type: approval
