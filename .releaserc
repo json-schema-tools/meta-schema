@@ -15,14 +15,22 @@
     "@semantic-release/npm"
   ],
   "verifyConditions": [
-    "@json-schema-tools/semantic-release-transpiler",
+    ["@json-schema-tools/semantic-release-transpiler", {
+      "outpath": "./",
+      "schemaLocation": "./meta-schema.json",
+      "languages": { "ts": true }
+    }],
     "@semantic-release/changelog",
     "@semantic-release/npm",
     "@semantic-release/git",
     "@semantic-release/github"
   ],
   "prepare": [
-    "@json-schema-tools/semantic-release-transpiler",
+    ["@json-schema-tools/semantic-release-transpiler", {
+      "outpath": "./",
+      "schemaLocation": "./meta-schema.json",
+      "languages": { "ts": true }
+    }],
     "@semantic-release/changelog"
   ],
   "publish": [
