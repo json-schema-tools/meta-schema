@@ -2,7 +2,7 @@
   "name": "@json-schema-tools/meta-schema",
   "version": "0.0.0-development",
   "description": "JSON Schema Meta Schema",
-  "main": "build/index.js",
+  "main": "build/src/index.js",
   "publishConfig": {
     "access": "public"
   },
