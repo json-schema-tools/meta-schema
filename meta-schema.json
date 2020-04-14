@@ -4,6 +4,7 @@
     "title": "Core schema meta-schema",
     "definitions": {
         "schemaArray": {
+            "title": "schemaArray",
             "type": "array",
             "minItems": 1,
             "items": {
@@ -11,20 +12,25 @@
             }
         },
         "nonNegativeInteger": {
+            "title": "nonNegativeInteger",
             "type": "integer",
             "minimum": 0
         },
         "nonNegativeIntegerDefault0": {
+            "title": "nonNegativeIntegerDefaultZero",
             "allOf": [{
                 "$ref": "#/definitions/nonNegativeInteger"
             }, {
+                "title": "DefaultZero",
                 "default": 0
             }]
         },
         "simpleTypes": {
+            "title": "simpleTypes",
             "enum": ["array", "boolean", "integer", "null", "number", "object", "string"]
         },
         "stringArray": {
+            "title": "simpleTypes",
             "type": "array",
             "items": {
                 "type": "string"
