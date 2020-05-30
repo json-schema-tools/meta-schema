@@ -34,6 +34,14 @@
     "@semantic-release/changelog"
   ],
   "publish": [
+    ["@semantic-release/github", {
+      "assets": [
+        "build/generated-typings.js",
+        "build/generated-typings.d.ts",
+        "build/index.js",
+        "build/index.d.ts"
+      ]
+    }],
     "@semantic-release/github",
     "@semantic-release/npm"
   ],
