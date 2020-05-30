@@ -42,7 +42,6 @@
         "build/index.d.ts"
       ]
     }],
-    "@semantic-release/github",
     "@semantic-release/npm"
   ],
   "success": [
