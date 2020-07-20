@@ -1,20 +1,20 @@
 {
   "$schema": "https://meta.json-schema.tools.org/",
   "$id": "https://meta.json-schema.tools.org/",
-  "title": "JSONSchemaOrBoolean",
+  "title": "JSONSchema",
   "default": {},
   "oneOf": [
-    { "$ref": "#/definitions/JSONSchema" },
-    { "$ref": "#/definitions/JSONSchemaAsBoolean" }
+    { "$ref": "#/definitions/JSONSchemaObject" },
+    { "$ref": "#/definitions/JSONSchemaBoolean" }
   ],
   "definitions": {
     "JSONSchemaAsBoolean": {
-      "title": "JSONSchemaAsBoolean",
+      "title": "JSONSchemaBoolean",
       "description": "Always valid if true. Never valid if false. Is constant.",
       "type": "boolean"
     },
     "JSONSchema": {
-      "title": "JSONSchema",
+      "title": "JSONSchemaObject",
       "type": "object",
       "properties": {
         "$id": {
