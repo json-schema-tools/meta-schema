@@ -157,6 +157,7 @@
           "title": "dependencies",
           "type": "object",
           "additionalProperties": {
+            "title": "dependenciesSet",
             "anyOf": [{
               "$ref": "#"
             }, {
@@ -176,6 +177,7 @@
           "uniqueItems": true
         },
         "type": {
+          "title": "type",
           "anyOf": [{
             "$ref": "#/definitions/simpleTypes"
           }, {
