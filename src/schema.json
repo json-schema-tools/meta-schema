@@ -1,216 +1,228 @@
 {
   "$schema": "https://meta.json-schema.tools.org/",
   "$id": "https://meta.json-schema.tools.org/",
-  "title": "JSONSchema",
-  "type": ["object", "boolean"],
-  "default": true,
-  "properties": {
-    "$id": {
-      "title": "$id",
-      "type": "string",
-      "format": "uri-reference"
+  "title": "JSONSchemaOrBoolean",
+  "default": {},
+  "oneOf": [
+    { "$ref": "#/definitions/JSONSchema" },
+    { "$ref": "#/definitions/JSONSchemaAsBoolean" }
+  ],
+  "definitions": {
+    "JSONSchemaAsBoolean": {
+      "title": "JSONSchemaAsBoolean",
+      "description": "Always valid if true. Never valid if false. Is constant.",
+      "type": "boolean"
     },
-    "$schema": {
-      "title": "$schema",
-      "type": "string",
-      "format": "uri"
-    },
-    "$ref": {
-      "title": "$ref",
-      "type": "string",
-      "format": "uri-reference"
-    },
-    "$comment": {
-      "title": "$comment",
-      "type": "string"
-    },
-    "title": {
-      "title": "title",
-      "type": "string"
-    },
-    "description": {
-      "title": "description",
-      "type": "string"
-    },
-    "default": true,
-    "readOnly": {
-      "title": "readOnly",
-      "type": "boolean",
-      "default": false
-    },
-    "examples": {
-      "title": "examples",
-      "type": "array",
-      "items": true
-    },
-    "multipleOf": {
-      "title": "multipleOf",
-      "type": "number",
-      "exclusiveMinimum": 0
-    },
-    "maximum": {
-      "title": "maximum",
-      "type": "number"
-    },
-    "exclusiveMaximum": {
-      "title": "exclusiveMaximum",
-      "type": "number"
-    },
-    "minimum": {
-      "title": "minimum",
-      "type": "number"
-    },
-    "exclusiveMinimum": {
-      "title": "exclusiveMinimum",
-      "type": "number"
-    },
-    "maxLength": {
-      "$ref": "#/definitions/nonNegativeInteger"
-    },
-    "minLength": {
-      "$ref": "#/definitions/nonNegativeIntegerDefault0"
-    },
-    "pattern": {
-      "title": "pattern",
-      "type": "string",
-      "format": "regex"
-    },
-    "additionalItems": {
-      "$ref": "#"
-    },
-    "items": {
-      "title": "items",
-      "anyOf": [{
-        "$ref": "#"
-      }, {
-        "$ref": "#/definitions/schemaArray"
-      }],
-      "default": true
-    },
-    "maxItems": {
-      "$ref": "#/definitions/nonNegativeInteger"
-    },
-    "minItems": {
-      "$ref": "#/definitions/nonNegativeIntegerDefault0"
-    },
-    "uniqueItems": {
-      "title": "uniqueItems",
-      "type": "boolean",
-      "default": false
-    },
-    "contains": {
-      "$ref": "#"
-    },
-    "maxProperties": {
-      "$ref": "#/definitions/nonNegativeInteger"
-    },
-    "minProperties": {
-      "$ref": "#/definitions/nonNegativeIntegerDefault0"
-    },
-    "required": {
-      "$ref": "#/definitions/stringArray"
-    },
-    "additionalProperties": {
-      "$ref": "#"
-    },
-    "definitions": {
-      "title": "definitions",
+    "JSONSchema": {
+      "title": "JSONSchema",
       "type": "object",
-      "additionalProperties": {
-        "$ref": "#"
-      },
-      "default": {}
-    },
-    "properties": {
-      "title": "properties",
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "#"
-      },
-      "default": {}
-    },
-    "patternProperties": {
-      "title": "patternProperties",
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "#"
-      },
-      "propertyNames": {
-        "title": "propertyNames",
-        "format": "regex"
-      },
-      "default": {}
-    },
-    "dependencies": {
-      "title": "dependencies",
-      "type": "object",
-      "additionalProperties": {
-        "anyOf": [{
+      "properties": {
+        "$id": {
+          "title": "$id",
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "$schema": {
+          "title": "$schema",
+          "type": "string",
+          "format": "uri"
+        },
+        "$ref": {
+          "title": "$ref",
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "$comment": {
+          "title": "$comment",
+          "type": "string"
+        },
+        "title": {
+          "title": "title",
+          "type": "string"
+        },
+        "description": {
+          "title": "description",
+          "type": "string"
+        },
+        "default": true,
+        "readOnly": {
+          "title": "readOnly",
+          "type": "boolean",
+          "default": false
+        },
+        "examples": {
+          "title": "examples",
+          "type": "array",
+          "items": true
+        },
+        "multipleOf": {
+          "title": "multipleOf",
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "maximum": {
+          "title": "maximum",
+          "type": "number"
+        },
+        "exclusiveMaximum": {
+          "title": "exclusiveMaximum",
+          "type": "number"
+        },
+        "minimum": {
+          "title": "minimum",
+          "type": "number"
+        },
+        "exclusiveMinimum": {
+          "title": "exclusiveMinimum",
+          "type": "number"
+        },
+        "maxLength": {
+          "$ref": "#/definitions/nonNegativeInteger"
+        },
+        "minLength": {
+          "$ref": "#/definitions/nonNegativeIntegerDefault0"
+        },
+        "pattern": {
+          "title": "pattern",
+          "type": "string",
+          "format": "regex"
+        },
+        "additionalItems": {
           "$ref": "#"
-        }, {
+        },
+        "items": {
+          "title": "items",
+          "anyOf": [{
+            "$ref": "#"
+          }, {
+            "$ref": "#/definitions/schemaArray"
+          }],
+          "default": true
+        },
+        "maxItems": {
+          "$ref": "#/definitions/nonNegativeInteger"
+        },
+        "minItems": {
+          "$ref": "#/definitions/nonNegativeIntegerDefault0"
+        },
+        "uniqueItems": {
+          "title": "uniqueItems",
+          "type": "boolean",
+          "default": false
+        },
+        "contains": {
+          "$ref": "#"
+        },
+        "maxProperties": {
+          "$ref": "#/definitions/nonNegativeInteger"
+        },
+        "minProperties": {
+          "$ref": "#/definitions/nonNegativeIntegerDefault0"
+        },
+        "required": {
           "$ref": "#/definitions/stringArray"
-        }]
+        },
+        "additionalProperties": {
+          "$ref": "#"
+        },
+        "definitions": {
+          "title": "definitions",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#"
+          },
+          "default": {}
+        },
+        "properties": {
+          "title": "properties",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#"
+          },
+          "default": {}
+        },
+        "patternProperties": {
+          "title": "patternProperties",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#"
+          },
+          "propertyNames": {
+            "title": "propertyNames",
+            "format": "regex"
+          },
+          "default": {}
+        },
+        "dependencies": {
+          "title": "dependencies",
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [{
+              "$ref": "#"
+            }, {
+              "$ref": "#/definitions/stringArray"
+            }]
+          }
+        },
+        "propertyNames": {
+          "$ref": "#"
+        },
+        "const": true,
+        "enum": {
+          "title": "enum",
+          "type": "array",
+          "items": true,
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "type": {
+          "anyOf": [{
+            "$ref": "#/definitions/simpleTypes"
+          }, {
+            "title": "arrayOfSimpleTypes",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/simpleTypes"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }]
+        },
+        "format": {
+          "title": "format",
+          "type": "string"
+        },
+        "contentMediaType": {
+          "title": "contentMediaType",
+          "type": "string"
+        },
+        "contentEncoding": {
+          "title": "contentEncoding",
+          "type": "string"
+        },
+        "if": {
+          "$ref": "#"
+        },
+        "then": {
+          "$ref": "#"
+        },
+        "else": {
+          "$ref": "#"
+        },
+        "allOf": {
+          "$ref": "#/definitions/schemaArray"
+        },
+        "anyOf": {
+          "$ref": "#/definitions/schemaArray"
+        },
+        "oneOf": {
+          "$ref": "#/definitions/schemaArray"
+        },
+        "not": {
+          "$ref": "#"
+        }
       }
     },
-    "propertyNames": {
-      "$ref": "#"
-    },
-    "const": true,
-    "enum": {
-      "title": "enum",
-      "type": "array",
-      "items": true,
-      "minItems": 1,
-      "uniqueItems": true
-    },
-    "type": {
-      "anyOf": [{
-        "$ref": "#/definitions/simpleTypes"
-      }, {
-        "title": "arrayOfSimpleTypes",
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/simpleTypes"
-        },
-        "minItems": 1,
-        "uniqueItems": true
-      }]
-    },
-    "format": {
-      "title": "format",
-      "type": "string"
-    },
-    "contentMediaType": {
-      "title": "contentMediaType",
-      "type": "string"
-    },
-    "contentEncoding": {
-      "title": "contentEncoding",
-      "type": "string"
-    },
-    "if": {
-      "$ref": "#"
-    },
-    "then": {
-      "$ref": "#"
-    },
-    "else": {
-      "$ref": "#"
-    },
-    "allOf": {
-      "$ref": "#/definitions/schemaArray"
-    },
-    "anyOf": {
-      "$ref": "#/definitions/schemaArray"
-    },
-    "oneOf": {
-      "$ref": "#/definitions/schemaArray"
-    },
-    "not": {
-      "$ref": "#"
-    }
-  },
-  "definitions": {
     "schemaArray": {
       "title": "schemaArray",
       "type": "array",
