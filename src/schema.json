@@ -13,7 +13,7 @@
       "description": "Always valid if true. Never valid if false. Is constant.",
       "type": "boolean"
     },
-    "JSONSchema": {
+    "JSONSchemaObject": {
       "title": "JSONSchemaObject",
       "type": "object",
       "properties": {
