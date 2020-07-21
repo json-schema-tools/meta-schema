@@ -5,7 +5,7 @@
     "@semantic-release/commit-analyzer",
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
-      "schemaLocation": "./meta-schema.json",
+      "schemaLocation": "./src/schema.json",
       "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
     "@semantic-release/release-notes-generator",
