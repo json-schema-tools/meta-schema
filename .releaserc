@@ -17,7 +17,7 @@
   "verifyConditions": [
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
-      "schemaLocation": "./meta-schema.json",
+      "schemaLocation": "./src/schema.json",
       "languages": { "ts": true }
     }],
     "@semantic-release/changelog",
@@ -28,7 +28,7 @@
   "prepare": [
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
-      "schemaLocation": "./meta-schema.json",
+      "schemaLocation": "./src/schema.json",
       "languages": { "ts": true }
     }],
     "@semantic-release/changelog"
