@@ -1,6 +1,6 @@
 {
-  "$schema": "https://meta.json-schema.tools.org/",
-  "$id": "https://meta.json-schema.tools.org/",
+  "$schema": "https://meta.json-schema.tools/",
+  "$id": "https://meta.json-schema.tools/",
   "title": "JSONSchema",
   "default": {},
   "oneOf": [
