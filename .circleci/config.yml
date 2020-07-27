@@ -46,7 +46,15 @@ jobs:
       - restore_cache: *restore-deps-cache
       - run: npm install
       - run: ./node_modules/.bin/semantic-release
-      - run: ls
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Deploy to S3
+          command: aws s3 mv src/schema.json s3://meta.json-schema.tools/latest.json
+      - run:
+          name: invalidate cloudfront
+          command: aws cloudfront create-invalidation --distribution-id E696AW4VCNCYK --paths '/*'
       - save_cache: *save-deps-cache
 
 workflows:
