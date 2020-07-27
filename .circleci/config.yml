@@ -40,10 +40,14 @@ jobs:
   release:
     <<: *defaults
     docker:
-      - image: circleci/node:lts
+      - image: circleci/python:2.7-stretch
     steps:
       - checkout
-      - restore_cache: *restore-deps-cache
+      - run:
+          name: "Update Node.js and npm"
+          command: |
+              curl -sSL "https://nodejs.org/dist/v10.18.0/node-v10.18.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v10.18.0-linux-x64/bin/node
+              curl https://www.npmjs.com/install.sh | sudo bash
       - run: npm install
       - run: ./node_modules/.bin/semantic-release
       - run:
