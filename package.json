@@ -3,6 +3,13 @@
   "version": "0.0.0-development",
   "description": "JSON Schema Meta Schema",
   "main": "build/index.js",
+  "bugs": {
+    "url": "https://github.com/json-schema-tools/meta-schema/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/json-schema-tools/meta-schema.git"
+  },
   "publishConfig": {
     "access": "public"
   },
