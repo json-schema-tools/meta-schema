@@ -1,3 +1,10 @@
+## [1.5.5](https://github.com/json-schema-tools/meta-schema/compare/1.5.4...1.5.5) (2020-10-05)
+
+
+### Bug Fixes
+
+* remove nonesense from gitignore ([044bf66](https://github.com/json-schema-tools/meta-schema/commit/044bf66ff0465a0a5410c25a2307a1e1113881fc))
+
 ## [1.5.4](https://github.com/json-schema-tools/meta-schema/compare/1.5.3...1.5.4) (2020-10-05)
 
 
