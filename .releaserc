@@ -36,10 +36,8 @@
   "publish": [
     ["@semantic-release/github", {
       "assets": [
-        "generated-typings.js",
-        "/generated-typings.d.ts",
-        "build/index.js",
-        "build/index.d.ts"
+        "index.*",
+        "schema.json"
       ]
     }],
     "@semantic-release/npm"
