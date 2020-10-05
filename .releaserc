@@ -18,7 +18,7 @@
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
       "schemaLocation": "./src/schema.json",
-      "languages": { "ts": true }
+      "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
     "@semantic-release/changelog",
     "@semantic-release/npm",
@@ -29,15 +29,15 @@
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
       "schemaLocation": "./src/schema.json",
-      "languages": { "ts": true }
+      "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
     "@semantic-release/changelog"
   ],
   "publish": [
     ["@semantic-release/github", {
       "assets": [
-        "build/generated-typings.js",
-        "build/generated-typings.d.ts",
+        "generated-typings.js",
+        "/generated-typings.d.ts",
         "build/index.js",
         "build/index.d.ts"
       ]
