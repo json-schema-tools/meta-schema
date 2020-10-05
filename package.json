@@ -2,7 +2,7 @@
   "name": "@json-schema-tools/meta-schema",
   "version": "0.0.0-development",
   "description": "JSON Schema Meta Schema",
-  "main": "build/index.js",
+  "main": "index.js",
   "bugs": {
     "url": "https://github.com/json-schema-tools/meta-schema/issues"
   },
@@ -17,20 +17,22 @@
     "test": "semantic-release --dry-run"
   },
   "files": [
-    "build",
-    "!build/*.test.*"
+      "index.js",
+      "index.d.ts",
+      "schema.json"
   ],
-  "author": "",
+  "author": "Zachary Belford <belfordz66@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@json-schema-tools/semantic-release-transpiler": "^1.4.0",
+    "@json-schema-tools/semantic-release-transpiler": "^1.4.3",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
-    "@semantic-release/github": "^7.0.7",
-    "@semantic-release/npm": "^7.0.5",
+    "@semantic-release/github": "^7.1.1",
+    "@semantic-release/npm": "^7.0.6",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "semantic-release": "^17.0.8",
-    "typescript": "^4.0.2"
-  }
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {}
 }
