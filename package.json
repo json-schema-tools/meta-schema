@@ -17,9 +17,9 @@
     "test": "semantic-release --dry-run"
   },
   "files": [
-      "index.js",
-      "index.d.ts",
-      "schema.json"
+    "index.js",
+    "index.d.ts",
+    "schema.json"
   ],
   "author": "Zachary Belford <belfordz66@gmail.com>",
   "license": "Apache-2.0",

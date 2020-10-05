@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/json-schema-tools/meta-schema/compare/1.5.3...1.5.4) (2020-10-05)
+
+
+### Bug Fixes
+
+* add missing git plugin for sem rel ([6f237a8](https://github.com/json-schema-tools/meta-schema/commit/6f237a8d7d42c946c8682df1dff6cd42088b3aea))
+
 ## [1.0.1](https://github.com/json-schema-tools/meta-schema/compare/1.0.0...1.0.1) (2020-04-03)
 
 
