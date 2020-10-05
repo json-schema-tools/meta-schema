@@ -63,19 +63,9 @@ jobs:
 
 workflows:
   version: 2
-  analysis:
-    jobs:
-      - test:
-          filters: *filter-only-semantic-pr
-          context: sem-rel-json-schema-tools
 
   release:
     jobs:
-      - test:
-          filters: *filter-only-master
-          context: sem-rel-json-schema-tools
       - release:
           filters: *filter-only-master
           context: sem-rel-json-schema-tools
-          requires:
-            - test
