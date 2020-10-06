@@ -1,3 +1,10 @@
+## [1.5.7](https://github.com/json-schema-tools/meta-schema/compare/1.5.6...1.5.7) (2020-10-06)
+
+
+### Bug Fixes
+
+* pin the tail on the donkey at this point ([ea3e8cb](https://github.com/json-schema-tools/meta-schema/commit/ea3e8cb36b575622428cb27deabb9f424196f406))
+
 ## [1.5.6](https://github.com/json-schema-tools/meta-schema/compare/1.5.5...1.5.6) (2020-10-06)
 
 
