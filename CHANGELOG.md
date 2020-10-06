@@ -1,3 +1,11 @@
+## [1.5.6](https://github.com/json-schema-tools/meta-schema/compare/1.5.5...1.5.6) (2020-10-06)
+
+
+### Bug Fixes
+
+* add exec sem rel plguin to node modules ([4acbf63](https://github.com/json-schema-tools/meta-schema/commit/4acbf63eb28da6fd32e6909f74f16fcbb47d2103))
+* try adding an extra commit ([3dd0ab4](https://github.com/json-schema-tools/meta-schema/commit/3dd0ab4ac90ac6be38b314e58f5c508218680b00))
+
 ## [1.5.5](https://github.com/json-schema-tools/meta-schema/compare/1.5.4...1.5.5) (2020-10-05)
 
 
