@@ -7,6 +7,9 @@
       "schemaLocation": "./src/schema.json",
       "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
+    ["@semantic-release/exec", {
+      "prepareCmd": "git add . && git commit -m \"chore(release): add newly generated typings\""
+    }],
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
