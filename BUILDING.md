@@ -24,7 +24,7 @@ It is the responsibilty of the build tooling to write artifacts to the appropria
 
 ## Build Folder Name
 
-The cannonical folder for builds SHALL be named `build` and be located at the root of the project repository.
+The canonical folder for builds SHALL be named `build` and be located at the root of the project repository.
 Each project MUST `git ignore` the `build` folder.
 
 ## Build Folder Structure
