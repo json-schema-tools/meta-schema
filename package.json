@@ -1,7 +1,7 @@
 {
   "name": "@json-schema-tools/meta-schema",
   "version": "0.0.0-development",
-  "description": "JSON Schema Meta Schema",
+  "description": "JSON Schema Meta Schema & Generated types for typescript, rust, golang and python",
   "main": "index.js",
   "bugs": {
     "url": "https://github.com/json-schema-tools/meta-schema/issues"
@@ -24,7 +24,7 @@
   "author": "Zachary Belford <belfordz66@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@json-schema-tools/semantic-release-transpiler": "^1.4.3",
+    "@json-schema-tools/semantic-release-transpiler": "^1.4.4",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/exec": "^5.0.0",
