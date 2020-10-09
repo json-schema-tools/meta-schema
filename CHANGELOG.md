@@ -1,3 +1,11 @@
+## [1.5.8](https://github.com/json-schema-tools/meta-schema/compare/1.5.7...1.5.8) (2020-10-09)
+
+
+### Bug Fixes
+
+* ensure that the second release commit skips ci ([655b0a0](https://github.com/json-schema-tools/meta-schema/commit/655b0a056874b3ff5d1e216d447d51acdefe3bf8))
+* update to latest sem rel transpiler ([96a665f](https://github.com/json-schema-tools/meta-schema/commit/96a665f650d751159a1793fe321c99163e2a0501))
+
 ## [1.5.7](https://github.com/json-schema-tools/meta-schema/compare/1.5.6...1.5.7) (2020-10-06)
 
 
