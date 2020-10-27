@@ -1,3 +1,13 @@
+## [1.5.9](https://github.com/json-schema-tools/meta-schema/compare/1.5.8...1.5.9) (2020-10-27)
+
+
+### Bug Fixes
+
+* add funding ([2e9cec8](https://github.com/json-schema-tools/meta-schema/commit/2e9cec807c464cc5cfb3483be7d88cbc6a0ec9c3))
+* oc name ([6996e8b](https://github.com/json-schema-tools/meta-schema/commit/6996e8bb979f7a36b13a9fba285f5a6962b011fc))
+* set cloudfront distro id properly ([f69c6f4](https://github.com/json-schema-tools/meta-schema/commit/f69c6f4ceb2c6c41f3a18d47102456af47a97af9))
+* simpliefy nonNegativeIntegerDefaultZero ([a129529](https://github.com/json-schema-tools/meta-schema/commit/a129529a7b6fdd6ac891a88168f014084f926167))
+
 ## [1.5.8](https://github.com/json-schema-tools/meta-schema/compare/1.5.7...1.5.8) (2020-10-09)
 
 
