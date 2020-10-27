@@ -240,12 +240,9 @@
         },
         "nonNegativeIntegerDefault0": {
             "title": "nonNegativeIntegerDefaultZero",
-            "allOf": [{
-                    "$ref": "#/definitions/nonNegativeInteger"
-                }, {
-                    "title": "defaultZero",
-                    "default": 0
-                }]
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
         },
         "simpleTypes": {
             "title": "simpleTypes",
