@@ -1,3 +1,10 @@
+## [1.5.10](https://github.com/json-schema-tools/meta-schema/compare/1.5.9...1.5.10) (2020-11-03)
+
+
+### Bug Fixes
+
+* update readme ([b73aeb9](https://github.com/json-schema-tools/meta-schema/commit/b73aeb9ea0d00c56b455e9b2a7f75badd5cec4a8))
+
 ## [1.5.9](https://github.com/json-schema-tools/meta-schema/compare/1.5.8...1.5.9) (2020-10-27)
 
 
