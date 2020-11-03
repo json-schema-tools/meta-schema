@@ -4,7 +4,22 @@ This repo contains the json schema meta schema and code to package it on npm, ge
 
 ## Installing
 
+### Typescript
+
 `npm install --save @json-schema-tools/meta-schema`
+
+### Golang
+
+`go get github.com/json-schema-tools/meta-schema`
+
+## Using
+
+### Typescript
+```typescript
+import JSONSchema, { JSONSchemaObject, Properties, Items } from "@json-schema-tools/meta-schema"
+```
+
+###
 
 ### Contributing
 
