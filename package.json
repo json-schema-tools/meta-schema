@@ -24,7 +24,7 @@
   "author": "Zachary Belford <belfordz66@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@json-schema-tools/semantic-release-transpiler": "^1.4.4",
+    "@json-schema-tools/semantic-release-transpiler": "^1.5.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/exec": "^5.0.0",
