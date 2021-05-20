@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/json-schema-tools/meta-schema/compare/1.6.0...1.6.1) (2021-05-20)
+
+
+### Bug Fixes
+
+* release should be publish ([022ade9](https://github.com/json-schema-tools/meta-schema/commit/022ade96ac11dc8a3c1c14a4d9e62c739aadc612))
+
 # [1.6.0](https://github.com/json-schema-tools/meta-schema/compare/1.5.10...1.6.0) (2021-05-20)
 
 
