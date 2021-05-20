@@ -1,3 +1,17 @@
+# [1.6.0](https://github.com/json-schema-tools/meta-schema/compare/1.5.10...1.6.0) (2021-05-20)
+
+
+### Bug Fixes
+
+* circleci script typop ([98eb9dc](https://github.com/json-schema-tools/meta-schema/commit/98eb9dc9b6c632894f1065b2782bfa13f711ba1e))
+* circleci script typop ([1a96cf6](https://github.com/json-schema-tools/meta-schema/commit/1a96cf63c75e59f3889972ccd2b46a7abad84dce))
+
+
+### Features
+
+* add rust release in circleci ([440a8ec](https://github.com/json-schema-tools/meta-schema/commit/440a8ecc65c100ed30556354fee471d213c52fe0))
+* update sem rel trans ([c426617](https://github.com/json-schema-tools/meta-schema/commit/c426617197a22593025fafee443b15ac2253181c))
+
 ## [1.5.10](https://github.com/json-schema-tools/meta-schema/compare/1.5.9...1.5.10) (2020-11-03)
 
 
