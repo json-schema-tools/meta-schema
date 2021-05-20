@@ -68,7 +68,7 @@ jobs:
     steps:
       - checkout
       - run: cargo login $CRATES_API_TOKEN
-      - run: cargo release
+      - run: cargo publish
 
 
 workflows:
