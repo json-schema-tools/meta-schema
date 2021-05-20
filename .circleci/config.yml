@@ -61,7 +61,7 @@ jobs:
           command: aws cloudfront create-invalidation --distribution-id E205UL06VEMZBZ --paths '/*'
       - save_cache: *save-deps-cache
 
-  release:
+  release_rust:
     <<: *defaults
     docker:
       - image: circleci/rust
