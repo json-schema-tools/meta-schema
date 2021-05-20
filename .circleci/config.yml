@@ -82,5 +82,5 @@ workflows:
       - release_rust:
           filters: *filter-only-master
           context: sem-rel-json-schema-tools
-          hold:
+          requires:
             - release
