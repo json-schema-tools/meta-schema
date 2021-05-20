@@ -61,6 +61,16 @@ jobs:
           command: aws cloudfront create-invalidation --distribution-id E205UL06VEMZBZ --paths '/*'
       - save_cache: *save-deps-cache
 
+  release_rust:
+    <<: *defaults
+    docker:
+      - image: circleci/rust
+    steps:
+      - checkout
+      - run: cargo login $CRATES_API_TOKEN
+      - run: cargo release
+
+
 workflows:
   version: 2
 
@@ -69,3 +79,8 @@ workflows:
       - release:
           filters: *filter-only-master
           context: sem-rel-json-schema-tools
+      - release_rust:
+          filters: *filter-only-master
+          context: sem-rel-json-schema-tools
+          requires:
+            - release
