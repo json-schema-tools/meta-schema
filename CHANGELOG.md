@@ -1,3 +1,10 @@
+## [1.6.7](https://github.com/json-schema-tools/meta-schema/compare/1.6.6...1.6.7) (2021-05-26)
+
+
+### Bug Fixes
+
+* missing derive feature in rust ([8e43df4](https://github.com/json-schema-tools/meta-schema/commit/8e43df4372eec2040a460fc531d7e41ba65ffd00))
+
 ## [1.6.6](https://github.com/json-schema-tools/meta-schema/compare/1.6.5...1.6.6) (2021-05-26)
 
 
