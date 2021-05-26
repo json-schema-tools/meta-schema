@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/json-schema-tools/meta-schema/compare/1.6.3...1.6.4) (2021-05-26)
+
+
+### Bug Fixes
+
+* release needs to checkout master ([438e0d9](https://github.com/json-schema-tools/meta-schema/commit/438e0d9d5b608ecdb4adcdc85f978258a90c87e9))
+
 ## [1.6.3](https://github.com/json-schema-tools/meta-schema/compare/1.6.2...1.6.3) (2021-05-26)
 
 
