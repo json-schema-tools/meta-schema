@@ -6,13 +6,13 @@ from typing import Mapping
 from typing import TypedDict
 from typing import Optional
 
-$Id = NewType("$Id", str)
+Id = NewType("Id", str)
 
-$Schema = NewType("$Schema", str)
+Schema = NewType("Schema", str)
 
-$Ref = NewType("$Ref", str)
+Ref = NewType("Ref", str)
 
-$Comment = NewType("$Comment", str)
+Comment = NewType("Comment", str)
 
 Title = NewType("Title", str)
 
@@ -74,10 +74,10 @@ ContentMediaType = NewType("ContentMediaType", str)
 ContentEncoding = NewType("ContentEncoding", str)
 
 class JSONSchemaObject(TypedDict):
-    $id: Optional[$Id]
-    $schema: Optional[$Schema]
-    $ref: Optional[$Ref]
-    $comment: Optional[$Comment]
+    $id: Optional[Id]
+    $schema: Optional[Schema]
+    $ref: Optional[Ref]
+    $comment: Optional[Comment]
     title: Optional[Title]
     description: Optional[Description]
     default: Optional[AlwaysTrue]

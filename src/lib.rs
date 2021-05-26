@@ -2,10 +2,10 @@ extern crate serde_json;
 
 use serde::{Serialize, Deserialize};
 use std::collections::HashMap;
-pub type $Id = String;
-pub type $Schema = String;
-pub type $Ref = String;
-pub type $Comment = String;
+pub type Id = String;
+pub type Schema = String;
+pub type Ref = String;
+pub type Comment = String;
 pub type Title = String;
 pub type Description = String;
 type AlwaysTrue = serde_json::Value;
@@ -74,10 +74,10 @@ pub type ContentMediaType = String;
 pub type ContentEncoding = String;
 #[derive(Serialize, Deserialize)]
 pub struct JSONSchemaObject {
-    pub(crate) $id: Option<$Id>,
-    pub(crate) $schema: Option<$Schema>,
-    pub(crate) $ref: Option<$Ref>,
-    pub(crate) $comment: Option<$Comment>,
+    pub(crate) $id: Option<Id>,
+    pub(crate) $schema: Option<Schema>,
+    pub(crate) $ref: Option<Ref>,
+    pub(crate) $comment: Option<Comment>,
     pub(crate) title: Option<Title>,
     pub(crate) description: Option<Description>,
     pub(crate) default: Option<AlwaysTrue>,
