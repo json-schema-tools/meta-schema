@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/json-schema-tools/meta-schema/compare/1.6.1...1.6.2) (2021-05-26)
+
+
+### Bug Fixes
+
+* delete old rust build ([56cb2ca](https://github.com/json-schema-tools/meta-schema/commit/56cb2ca0843737e1cc772acf4eac65ffcdfc2a6b))
+
 ## [1.6.1](https://github.com/json-schema-tools/meta-schema/compare/1.6.0...1.6.1) (2021-05-20)
 
 
