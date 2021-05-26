@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/json-schema-tools/meta-schema/compare/1.6.2...1.6.3) (2021-05-26)
+
+
+### Bug Fixes
+
+* update sem rel trans to fix leading symbol issue ([007ca63](https://github.com/json-schema-tools/meta-schema/commit/007ca63e78fd49ca5b1c5d052302260caf81d137))
+
 ## [1.6.2](https://github.com/json-schema-tools/meta-schema/compare/1.6.1...1.6.2) (2021-05-26)
 
 
