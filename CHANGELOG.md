@@ -1,3 +1,10 @@
+## [1.6.5](https://github.com/json-schema-tools/meta-schema/compare/1.6.4...1.6.5) (2021-05-26)
+
+
+### Bug Fixes
+
+* replace initial checkout in rust release ([8034933](https://github.com/json-schema-tools/meta-schema/commit/80349334b9bac8b847271e51120caea9af61c308))
+
 ## [1.6.4](https://github.com/json-schema-tools/meta-schema/compare/1.6.3...1.6.4) (2021-05-26)
 
 
