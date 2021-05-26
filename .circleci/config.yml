@@ -66,6 +66,7 @@ jobs:
     docker:
       - image: circleci/rust
     steps:
+      - checkout
       - run: git checkout master && git fetch && git reset --hard origin/master
       - run: cargo login $CRATES_API_TOKEN
       - run: cargo publish
