@@ -1,3 +1,10 @@
+## [1.6.6](https://github.com/json-schema-tools/meta-schema/compare/1.6.5...1.6.6) (2021-05-26)
+
+
+### Bug Fixes
+
+* rust generation should work now ([4bf5716](https://github.com/json-schema-tools/meta-schema/commit/4bf5716e73d643fbebae0a09696909570231c6d9))
+
 ## [1.6.5](https://github.com/json-schema-tools/meta-schema/compare/1.6.4...1.6.5) (2021-05-26)
 
 
