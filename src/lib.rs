@@ -74,50 +74,79 @@ pub type ContentMediaType = String;
 pub type ContentEncoding = String;
 #[derive(Serialize, Deserialize)]
 pub struct JSONSchemaObject {
-    pub(crate) $id: Option<Id>,
-    pub(crate) $schema: Option<Schema>,
-    pub(crate) $ref: Option<Ref>,
-    pub(crate) $comment: Option<Comment>,
+    #[serde(rename="$id")]
+    pub(crate) id: Option<Id>,
+    #[serde(rename="$schema")]
+    pub(crate) schema: Option<Schema>,
+    #[serde(rename="$ref")]
+    pub(crate) ref: Option<Ref>,
+    #[serde(rename="$comment")]
+    pub(crate) comment: Option<Comment>,
     pub(crate) title: Option<Title>,
     pub(crate) description: Option<Description>,
     pub(crate) default: Option<AlwaysTrue>,
-    pub(crate) readOnly: Option<ReadOnly>,
+    #[serde(rename="readOnly")]
+    pub(crate) read_only: Option<ReadOnly>,
     pub(crate) examples: Option<Examples>,
-    pub(crate) multipleOf: Option<MultipleOf>,
+    #[serde(rename="multipleOf")]
+    pub(crate) multiple_of: Option<MultipleOf>,
     pub(crate) maximum: Option<Maximum>,
-    pub(crate) exclusiveMaximum: Option<ExclusiveMaximum>,
+    #[serde(rename="exclusiveMaximum")]
+    pub(crate) exclusive_maximum: Option<ExclusiveMaximum>,
     pub(crate) minimum: Option<Minimum>,
-    pub(crate) exclusiveMinimum: Option<ExclusiveMinimum>,
-    pub(crate) maxLength: Option<NonNegativeInteger>,
-    pub(crate) minLength: Option<NonNegativeIntegerDefaultZero>,
+    #[serde(rename="exclusiveMinimum")]
+    pub(crate) exclusive_minimum: Option<ExclusiveMinimum>,
+    #[serde(rename="maxLength")]
+    pub(crate) max_length: Option<NonNegativeInteger>,
+    #[serde(rename="minLength")]
+    pub(crate) min_length: Option<NonNegativeIntegerDefaultZero>,
     pub(crate) pattern: Option<Pattern>,
-    pub(crate) additionalItems: Option<JSONSchema>,
+    #[serde(rename="additionalItems")]
+    pub(crate) additional_items: Option<JSONSchema>,
     pub(crate) items: Option<Items>,
-    pub(crate) maxItems: Option<NonNegativeInteger>,
-    pub(crate) minItems: Option<NonNegativeIntegerDefaultZero>,
-    pub(crate) uniqueItems: Option<UniqueItems>,
+    #[serde(rename="maxItems")]
+    pub(crate) max_items: Option<NonNegativeInteger>,
+    #[serde(rename="minItems")]
+    pub(crate) min_items: Option<NonNegativeIntegerDefaultZero>,
+    #[serde(rename="uniqueItems")]
+    pub(crate) unique_items: Option<UniqueItems>,
     pub(crate) contains: Option<JSONSchema>,
-    pub(crate) maxProperties: Option<NonNegativeInteger>,
-    pub(crate) minProperties: Option<NonNegativeIntegerDefaultZero>,
+    #[serde(rename="maxProperties")]
+    pub(crate) max_properties: Option<NonNegativeInteger>,
+    #[serde(rename="minProperties")]
+    pub(crate) min_properties: Option<NonNegativeIntegerDefaultZero>,
     pub(crate) required: Option<StringArray>,
-    pub(crate) additionalProperties: Option<JSONSchema>,
+    #[serde(rename="additionalProperties")]
+    pub(crate) additional_properties: Option<JSONSchema>,
     pub(crate) definitions: Option<Definitions>,
     pub(crate) properties: Option<Properties>,
-    pub(crate) patternProperties: Option<PatternProperties>,
+    #[serde(rename="patternProperties")]
+    pub(crate) pattern_properties: Option<PatternProperties>,
     pub(crate) dependencies: Option<Dependencies>,
-    pub(crate) propertyNames: Option<JSONSchema>,
-    pub(crate) const: Option<AlwaysTrue>,
-    pub(crate) enum: Option<Enum>,
-    pub(crate) type: Option<Type>,
+    #[serde(rename="propertyNames")]
+    pub(crate) property_names: Option<JSONSchema>,
+    #[serde(rename="const")]
+    pub(crate) _const: Option<AlwaysTrue>,
+    #[serde(rename="enum")]
+    pub(crate) _enum: Option<Enum>,
+    #[serde(rename="type")]
+    pub(crate) _type: Option<Type>,
     pub(crate) format: Option<Format>,
-    pub(crate) contentMediaType: Option<ContentMediaType>,
-    pub(crate) contentEncoding: Option<ContentEncoding>,
-    pub(crate) if: Option<JSONSchema>,
+    #[serde(rename="contentMediaType")]
+    pub(crate) content_media_type: Option<ContentMediaType>,
+    #[serde(rename="contentEncoding")]
+    pub(crate) content_encoding: Option<ContentEncoding>,
+    #[serde(rename="if")]
+    pub(crate) _if: Option<JSONSchema>,
     pub(crate) then: Option<JSONSchema>,
-    pub(crate) else: Option<JSONSchema>,
-    pub(crate) allOf: Option<SchemaArray>,
-    pub(crate) anyOf: Option<SchemaArray>,
-    pub(crate) oneOf: Option<SchemaArray>,
+    #[serde(rename="else")]
+    pub(crate) _else: Option<JSONSchema>,
+    #[serde(rename="allOf")]
+    pub(crate) all_of: Option<SchemaArray>,
+    #[serde(rename="anyOf")]
+    pub(crate) any_of: Option<SchemaArray>,
+    #[serde(rename="oneOf")]
+    pub(crate) one_of: Option<SchemaArray>,
     pub(crate) not: Option<JSONSchema>,
 }
 /// JSONSchemaBoolean
