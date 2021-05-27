@@ -1,3 +1,10 @@
+## [1.6.10](https://github.com/json-schema-tools/meta-schema/compare/1.6.9...1.6.10) (2021-05-27)
+
+
+### Bug Fixes
+
+* add license and description to cargo yaml ([9cc20d6](https://github.com/json-schema-tools/meta-schema/commit/9cc20d6aeaf56a00c6574d1cae0d7ec794b04168))
+
 ## [1.6.9](https://github.com/json-schema-tools/meta-schema/compare/1.6.8...1.6.9) (2021-05-27)
 
 
