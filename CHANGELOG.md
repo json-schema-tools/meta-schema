@@ -1,3 +1,10 @@
+## [1.6.9](https://github.com/json-schema-tools/meta-schema/compare/1.6.8...1.6.9) (2021-05-27)
+
+
+### Bug Fixes
+
+* update sem rel trans for rust again ([b60e130](https://github.com/json-schema-tools/meta-schema/commit/b60e13081faf642daba1529fcb8be52cbf610098))
+
 ## [1.6.8](https://github.com/json-schema-tools/meta-schema/compare/1.6.7...1.6.8) (2021-05-27)
 
 
