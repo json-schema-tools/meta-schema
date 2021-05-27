@@ -1,7 +1,7 @@
 [package]
 name = "json_schema"
-version = "1.6.9"
-description = "Generated typings to be used in rust programs and libraries."
+version = "1.6.10"
+description = "Generated types based on the JSON-Schema for json_schema"
 license = "Apache-2.0"
 
 [dependencies]
