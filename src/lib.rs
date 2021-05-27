@@ -80,7 +80,7 @@ pub struct JSONSchemaObject {
     #[serde(rename="$schema")]
     pub(crate) schema: Option<Schema>,
     #[serde(rename="$ref")]
-    pub(crate) ref: Option<Ref>,
+    pub(crate) _ref: Option<Ref>,
     #[serde(rename="$comment")]
     pub(crate) comment: Option<Comment>,
     pub(crate) title: Option<Title>,
