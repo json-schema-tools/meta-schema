@@ -12,6 +12,11 @@ This repo contains the json schema meta schema and code to package it on npm, ge
 
 `go get github.com/json-schema-tools/meta-schema`
 
+
+### Rust
+
+`cargo install json_schema`
+
 ## Using
 
 ### Typescript
@@ -19,7 +24,28 @@ This repo contains the json schema meta schema and code to package it on npm, ge
 import JSONSchema, { JSONSchemaObject, Properties, Items } from "@json-schema-tools/meta-schema"
 ```
 
-###
+### Rust
+
+#### From a string
+```rust
+let foo = r#"{
+    "title": "helloworld",
+    "type": "string"
+}"#;
+
+let as_json_schema: JSONSchemaObject = serde_json::from_str(foo).unwrap();
+```
+
+#### Using builder pattern
+```rust
+let schema = JSONSchemaObjectBuilder::default()
+    .title("foobar".to_string())
+    ._type(Type::SimpleTypes(SimpleTypes::String))
+    .build()
+    .unwrap();
+
+let as_str = serde_json::to_string(&schema).unwrap();
+```
 
 ### Contributing
 
