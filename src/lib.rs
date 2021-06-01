@@ -1,8 +1,11 @@
 extern crate serde;
 extern crate serde_json;
+extern crate derive_builder;
 
+use derive_builder::Builder;
 use serde::{Serialize, Deserialize};
 use std::collections::HashMap;
+
 pub type Id = String;
 pub type Schema = String;
 pub type Ref = String;
@@ -21,6 +24,7 @@ pub type NonNegativeInteger = i64;
 pub type NonNegativeIntegerDefaultZero = i64;
 pub type Pattern = String;
 pub type SchemaArray = Vec<JSONSchema>;
+#[derive(Clone)]
 #[derive(Serialize, Deserialize)]
 pub enum Items {
     JSONSchema,
@@ -56,6 +60,8 @@ pub type Properties = HashMap<String, Option<serde_json::Value>>;
 /// {}
 ///
 pub type PatternProperties = HashMap<String, Option<serde_json::Value>>;
+
+#[derive(Clone)]
 #[derive(Serialize, Deserialize)]
 pub enum DependenciesSet {
     JSONSchema,
@@ -63,29 +69,56 @@ pub enum DependenciesSet {
 }
 pub type Dependencies = HashMap<String, Option<serde_json::Value>>;
 pub type Enum = Vec<AlwaysTrue>;
-pub type SimpleTypes = serde_json::Value;
-pub type ArrayOfSimpleTypes = Vec<SimpleTypes>;
-#[derive(Serialize, Deserialize)]
-pub enum Type {
-    SimpleTypes,
-    ArrayOfSimpleTypes
+
+#[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
+pub enum SimpleTypes {
+    #[serde(rename = "string")]
+    String,
+    #[serde(rename = "array")]
+    Array,
+    #[serde(rename = "object")]
+    Object,
+    #[serde(rename = "number")]
+    Number,
+    #[serde(rename = "boolean")]
+    Boolean,
+    #[serde(rename = "integer")]
+    Integer
 }
+
+pub type ArrayOfSimpleTypes = Vec<SimpleTypes>;
+
+#[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
+#[serde(untagged)]
+pub enum Type {
+    SimpleTypes(SimpleTypes),
+    ArrayOfSimpleTypes(ArrayOfSimpleTypes)
+}
+
 pub type Format = String;
 pub type ContentMediaType = String;
 pub type ContentEncoding = String;
-#[derive(Serialize, Deserialize)]
+
+#[derive(Serialize, Deserialize, Builder, Default)]
+#[builder(setter(strip_option), default)]
+#[serde(default)]
 pub struct JSONSchemaObject {
-    #[serde(rename="$id")]
-    pub(crate) id: Option<Id>,
-    #[serde(rename="$schema")]
-    pub(crate) schema: Option<Schema>,
-    #[serde(rename="$ref")]
-    pub(crate) _ref: Option<Ref>,
-    #[serde(rename="$comment")]
-    pub(crate) comment: Option<Comment>,
-    pub(crate) title: Option<Title>,
+    #[serde(rename="$id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<Id>,
+    #[serde(rename="$schema", skip_serializing_if = "Option::is_none")]
+    pub schema: Option<Schema>,
+    #[serde(rename="$ref", skip_serializing_if = "Option::is_none")]
+    pub _ref: Option<Ref>,
+    #[serde(rename="$comment", skip_serializing_if = "Option::is_none")]
+    pub comment: Option<Comment>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub title: Option<Title>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub(crate) description: Option<Description>,
-    pub(crate) default: Option<AlwaysTrue>,
+
+    #[serde(rename="default", skip_serializing_if = "Option::is_none")]
+    pub(crate) _default: Option<AlwaysTrue>,
+
     #[serde(rename="readOnly")]
     pub(crate) read_only: Option<ReadOnly>,
     pub(crate) examples: Option<Examples>,
@@ -131,7 +164,7 @@ pub struct JSONSchemaObject {
     #[serde(rename="enum")]
     pub(crate) _enum: Option<Enum>,
     #[serde(rename="type")]
-    pub(crate) _type: Option<Type>,
+    pub _type: Option<Type>,
     pub(crate) format: Option<Format>,
     #[serde(rename="contentMediaType")]
     pub(crate) content_media_type: Option<ContentMediaType>,
@@ -155,8 +188,74 @@ pub struct JSONSchemaObject {
 /// Always valid if true. Never valid if false. Is constant.
 ///
 pub type JSONSchemaBoolean = bool;
+
+#[derive(Clone)]
 #[derive(Serialize, Deserialize)]
 pub enum JSONSchema {
     JSONSchemaObject,
     JSONSchemaBoolean
 }
+
+// #[cfg(test)]
+// mod tests {
+//     use super::*;
+
+//     #[test]
+//     fn can_build_and_serialize() {
+//         let schema = JSONSchemaObjectBuilder::default()
+//             .title("foobar".to_string())
+//             ._type(Type::SimpleTypes(SimpleTypes::String))
+//             .build()
+//             .unwrap();
+
+//         let as_str = serde_json::to_string(&schema).unwrap();
+//         let expected = "{\"title\": \"foobar\", \"type\": \"string\"}".to_string();
+//         assert_eq!(as_str, expected);
+//     }
+
+//     #[test]
+//     fn can_build_and_serialize_array_types() {
+
+//         let schema = JSONSchemaObjectBuilder::default()
+//             ._type(Type::ArrayOfSimpleTypes(vec!(SimpleTypes::String, SimpleTypes::Array)))
+//             .build()
+//             .unwrap();
+
+//         let as_str = serde_json::to_string(&schema).unwrap();
+//         println!("{}", as_str);
+
+//         let expected = "{\"type\": [\"string\", \"array\"]}".to_string();
+//         assert_eq!(as_str, expected);
+//     }
+
+//     #[test]
+//     fn can_deserialize() {
+//         let foo = r#"{
+//             "title": "helloworld",
+//             "type": "string"
+//         }"#;
+
+//         let as_json_schema: JSONSchemaObject = serde_json::from_str(foo).unwrap();
+//         assert_eq!(as_json_schema.title.unwrap(), "helloworld");
+//         assert_eq!(as_json_schema._type.unwrap(), Type::SimpleTypes(SimpleTypes::String));
+//     }
+
+//     #[test]
+//     fn can_deserialize_with_array_type() {
+//         let foo = r#"{
+//             "title": "helloworld",
+//             "type": ["string", "array"]
+//         }"#;
+
+//         let as_json_schema: JSONSchemaObject = serde_json::from_str(&foo).unwrap();
+
+//         let title = as_json_schema.title.as_ref();
+//         assert_eq!(title.unwrap(), "helloworld");
+//         let types_vec: ArrayOfSimpleTypes = vec!(SimpleTypes::String, SimpleTypes::Array);
+//         let t = as_json_schema._type.as_ref();
+//         assert_eq!(t.unwrap(), &Type::ArrayOfSimpleTypes(types_vec));
+
+//         let back_to_str = serde_json::to_string(&as_json_schema);
+//         assert_eq!(foo.replace(" ", "").replace("\n", ""), back_to_str.unwrap());
+//     }
+// }
