@@ -24,8 +24,8 @@ pub type NonNegativeInteger = i64;
 pub type NonNegativeIntegerDefaultZero = i64;
 pub type Pattern = String;
 pub type SchemaArray = Vec<JSONSchema>;
-#[derive(Clone)]
-#[derive(Serialize, Deserialize)]
+
+#[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
 pub enum Items {
     JSONSchema,
     SchemaArray
@@ -52,7 +52,7 @@ pub type Definitions = HashMap<String, Option<serde_json::Value>>;
 ///
 /// {}
 ///
-pub type Properties = HashMap<String, Option<serde_json::Value>>;
+pub type Properties = HashMap<String, Option<JSONSchema>>;
 /// PatternProperties
 ///
 /// # Default
@@ -61,8 +61,7 @@ pub type Properties = HashMap<String, Option<serde_json::Value>>;
 ///
 pub type PatternProperties = HashMap<String, Option<serde_json::Value>>;
 
-#[derive(Clone)]
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
 pub enum DependenciesSet {
     JSONSchema,
     StringArray
@@ -99,7 +98,7 @@ pub type Format = String;
 pub type ContentMediaType = String;
 pub type ContentEncoding = String;
 
-#[derive(Serialize, Deserialize, Builder, Default)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
 #[builder(setter(strip_option), default)]
 #[serde(default)]
 pub struct JSONSchemaObject {
@@ -136,7 +135,7 @@ pub struct JSONSchemaObject {
     pub(crate) min_length: Option<NonNegativeIntegerDefaultZero>,
     pub(crate) pattern: Option<Pattern>,
     #[serde(rename="additionalItems")]
-    pub(crate) additional_items: Option<JSONSchema>,
+    pub(crate) additional_items: Option<Box<JSONSchema>>,
     pub(crate) items: Option<Items>,
     #[serde(rename="maxItems")]
     pub(crate) max_items: Option<NonNegativeInteger>,
@@ -144,21 +143,21 @@ pub struct JSONSchemaObject {
     pub(crate) min_items: Option<NonNegativeIntegerDefaultZero>,
     #[serde(rename="uniqueItems")]
     pub(crate) unique_items: Option<UniqueItems>,
-    pub(crate) contains: Option<JSONSchema>,
+    pub contains: Option<Box<JSONSchema>>,
     #[serde(rename="maxProperties")]
     pub(crate) max_properties: Option<NonNegativeInteger>,
     #[serde(rename="minProperties")]
     pub(crate) min_properties: Option<NonNegativeIntegerDefaultZero>,
     pub(crate) required: Option<StringArray>,
     #[serde(rename="additionalProperties")]
-    pub(crate) additional_properties: Option<JSONSchema>,
+    pub(crate) additional_properties: Option<Box<JSONSchema>>,
     pub(crate) definitions: Option<Definitions>,
-    pub(crate) properties: Option<Properties>,
+    pub properties: Option<Properties>,
     #[serde(rename="patternProperties")]
     pub(crate) pattern_properties: Option<PatternProperties>,
     pub(crate) dependencies: Option<Dependencies>,
     #[serde(rename="propertyNames")]
-    pub(crate) property_names: Option<JSONSchema>,
+    pub(crate) property_names: Option<Box<JSONSchema>>,
     #[serde(rename="const")]
     pub(crate) _const: Option<AlwaysTrue>,
     #[serde(rename="enum")]
@@ -171,17 +170,17 @@ pub struct JSONSchemaObject {
     #[serde(rename="contentEncoding")]
     pub(crate) content_encoding: Option<ContentEncoding>,
     #[serde(rename="if")]
-    pub(crate) _if: Option<JSONSchema>,
-    pub(crate) then: Option<JSONSchema>,
+    pub(crate) _if: Option<Box<JSONSchema>>,
+    pub(crate) then: Option<Box<JSONSchema>>,
     #[serde(rename="else")]
-    pub(crate) _else: Option<JSONSchema>,
+    pub(crate) _else: Option<Box<JSONSchema>>,
     #[serde(rename="allOf")]
-    pub(crate) all_of: Option<SchemaArray>,
+    pub(crate) all_of: Option<Box<JSONSchema>>,
     #[serde(rename="anyOf")]
-    pub(crate) any_of: Option<SchemaArray>,
+    pub(crate) any_of: Option<Box<JSONSchema>>,
     #[serde(rename="oneOf")]
     pub(crate) one_of: Option<SchemaArray>,
-    pub(crate) not: Option<JSONSchema>,
+    pub(crate) not: Option<Box<JSONSchema>>,
 }
 /// JSONSchemaBoolean
 ///
@@ -189,9 +188,9 @@ pub struct JSONSchemaObject {
 ///
 pub type JSONSchemaBoolean = bool;
 
-#[derive(Clone)]
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[serde(untagged)]
 pub enum JSONSchema {
-    JSONSchemaObject,
-    JSONSchemaBoolean
+    JSONSchemaObject(JSONSchemaObject),
+    JSONSchemaBoolean(JSONSchemaBoolean)
 }

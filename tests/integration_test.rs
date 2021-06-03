@@ -60,3 +60,50 @@ fn can_deserialize_with_array_type() {
     let back_to_str = serde_json::to_string(&as_json_schema);
     assert_eq!(foo.replace(" ", "").replace("\n", ""), back_to_str.unwrap());
 }
+
+
+#[test]
+fn can_deserialize_boolean_schema() {
+    let foo = "true";
+
+    let as_json_schema: JSONSchema = serde_json::from_str(&foo).unwrap();
+
+    assert_eq!(as_json_schema, JSONSchema::JSONSchemaBoolean(true));
+}
+
+
+#[test]
+fn can_deserialize_nested_schema() {
+    let foo = r#"{
+            "title": "helloworld",
+            "type": "object",
+            "properties": {
+                "foo": { "type": "string", "title": "nestedfoo" }
+            }
+        }"#;
+
+    let as_json_schema: JSONSchema = serde_json::from_str(&foo).unwrap();
+
+    match as_json_schema {
+        JSONSchema::JSONSchemaObject(as_json_schema) => {
+            let title = as_json_schema.title.as_ref();
+            assert_eq!(title.unwrap(), "helloworld");
+
+            let subschema_props = as_json_schema.properties.unwrap();
+            let subschema = subschema_props.get("foo").unwrap();
+
+            match subschema.as_ref().unwrap() {
+                JSONSchema::JSONSchemaObject(subschema) => {
+                    let sub_title = subschema.title.as_ref();
+                    assert_eq!(sub_title.unwrap(), "nestedfoo");
+                }
+                JSONSchema::JSONSchemaBoolean(_subschema) => {
+                    assert_eq!(0,1);
+                }
+            }
+        },
+        JSONSchema::JSONSchemaBoolean(_as_json_schema) => {
+            assert_eq!(0,1);
+        }
+    }
+}
