@@ -1,3 +1,10 @@
+## [1.6.11](https://github.com/json-schema-tools/meta-schema/compare/1.6.10...1.6.11) (2021-06-11)
+
+
+### Bug Fixes
+
+* rust typings gen updates ([3997302](https://github.com/json-schema-tools/meta-schema/commit/39973022a654ba5c280945b8077be765819d156f))
+
 ## [1.6.10](https://github.com/json-schema-tools/meta-schema/compare/1.6.9...1.6.10) (2021-05-27)
 
 
