@@ -1,3 +1,10 @@
+## [1.6.12](https://github.com/json-schema-tools/meta-schema/compare/1.6.11...1.6.12) (2021-06-11)
+
+
+### Bug Fixes
+
+* rust missing a dep ([57c4d3d](https://github.com/json-schema-tools/meta-schema/commit/57c4d3db3a85ed90861af009f14b8e9e25faabeb))
+
 ## [1.6.11](https://github.com/json-schema-tools/meta-schema/compare/1.6.10...1.6.11) (2021-06-11)
 
 
