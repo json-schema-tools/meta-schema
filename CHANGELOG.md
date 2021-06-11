@@ -1,3 +1,11 @@
+## [1.6.13](https://github.com/json-schema-tools/meta-schema/compare/1.6.12...1.6.13) (2021-06-11)
+
+
+### Bug Fixes
+
+* missing dot json extension ([ce87d76](https://github.com/json-schema-tools/meta-schema/commit/ce87d76ad95132b8f2c56c0a5ac7b6ea834699e3))
+* restore packagelock and fix the updating issue ([f28a0d2](https://github.com/json-schema-tools/meta-schema/commit/f28a0d23740e8f875d2ed771469c7a417b11457c))
+
 ## [1.6.12](https://github.com/json-schema-tools/meta-schema/compare/1.6.11...1.6.12) (2021-06-11)
 
 
