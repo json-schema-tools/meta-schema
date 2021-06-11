@@ -44,13 +44,7 @@ pub type StringArray = Vec<StringDoaGddGA>;
 ///
 /// {}
 ///
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
-#[builder(setter(strip_option), default)]
-#[serde(default)]
-pub struct Definitions {
-    #[serde(flatten)]
-    pub additional_properties: Option<Box<JSONSchema>>
-}
+pub type Definitions = HashMap<String, Box<JSONSchema>>;
 /// Properties
 ///
 /// # Default
@@ -72,13 +66,7 @@ pub enum DependenciesSet {
     JSONSchema(Box<JSONSchema>),
     StringArray(StringArray),
 }
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
-#[builder(setter(strip_option), default)]
-#[serde(default)]
-pub struct Dependencies {
-    #[serde(flatten)]
-    pub additional_properties: Option<DependenciesSet>
-}
+pub type Dependencies = HashMap<String, Box<JSONSchema>>;
 pub type Enum = Vec<AlwaysTrue>;
 
 #[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
