@@ -1,6 +1,6 @@
 [package]
 name = "json_schema"
-version = "1.6.12"
+version = "1.6.13"
 description = "Generated types based on the JSON-Schema for json_schema"
 license = "Apache-2.0"
 
