@@ -57,7 +57,15 @@ pub struct Definitions {
 ///
 /// {}
 ///
-pub type Properties = HashMap<String, Option<JSONSchema>>;
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
+#[builder(setter(strip_option), default)]
+#[serde(default)]
+pub struct Properties {
+    #[serde(flatten)]
+    pub additional_properties: Option<PropertiesAdditional>
+}
+pub type PropertiesAdditional = HashMap<String, Box<JSONSchema>>;
 /// PatternProperties
 ///
 /// # Default
