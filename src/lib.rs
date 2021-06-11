@@ -52,7 +52,15 @@ pub type Definitions = HashMap<String, Option<serde_json::Value>>;
 ///
 /// {}
 ///
-pub type Properties = HashMap<String, Option<JSONSchema>>;
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
+#[builder(setter(strip_option), default)]
+#[serde(default)]
+pub struct Properties {
+    #[serde(flatten)]
+    pub additional_properties: Option<PropertiesAdditional>
+}
+pub type PropertiesAdditional = HashMap<String, Box<JSONSchema>>;
 /// PatternProperties
 ///
 /// # Default
@@ -175,7 +183,7 @@ pub struct JSONSchemaObject {
     #[serde(rename="else")]
     pub(crate) _else: Option<Box<JSONSchema>>,
     #[serde(rename="allOf")]
-    pub(crate) all_of: Option<Box<JSONSchema>>,
+    pub(crate) all_of: Option<SchemaArray>,
     #[serde(rename="anyOf")]
     pub(crate) any_of: Option<Box<JSONSchema>>,
     #[serde(rename="oneOf")]

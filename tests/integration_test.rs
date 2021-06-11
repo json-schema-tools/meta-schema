@@ -89,10 +89,14 @@ fn can_deserialize_nested_schema() {
             let title = as_json_schema.title.as_ref();
             assert_eq!(title.unwrap(), "helloworld");
 
-            let subschema_props = as_json_schema.properties.unwrap();
+            let subschema_props = as_json_schema
+                .properties
+                .unwrap()
+                .additional_properties
+                .unwrap();
             let subschema = subschema_props.get("foo").unwrap();
 
-            match subschema.as_ref().unwrap() {
+            match &**subschema {
                 JSONSchema::JSONSchemaObject(subschema) => {
                     let sub_title = subschema.title.as_ref();
                     assert_eq!(sub_title.unwrap(), "nestedfoo");
