@@ -44,7 +44,7 @@ pub type StringArray = Vec<StringDoaGddGA>;
 ///
 /// {}
 ///
-pub type Definitions = HashMap<String, Box<JSONSchema>>;
+pub type Definitions = HashMap<String, JSONSchema>;
 /// Properties
 ///
 /// # Default
@@ -52,21 +52,21 @@ pub type Definitions = HashMap<String, Box<JSONSchema>>;
 /// {}
 ///
 
-pub type Properties = HashMap<String, Box<JSONSchema>>;
+pub type Properties = HashMap<String, JSONSchema>;
 /// PatternProperties
 ///
 /// # Default
 ///
 /// {}
 ///
-pub type PatternProperties = HashMap<String, Box<JSONSchema>>;
+pub type PatternProperties = HashMap<String, JSONSchema>;
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 pub enum DependenciesSet {
     JSONSchema(Box<JSONSchema>),
     StringArray(StringArray),
 }
-pub type Dependencies = HashMap<String, Box<JSONSchema>>;
+pub type Dependencies = HashMap<String, JSONSchema>;
 pub type Enum = Vec<AlwaysTrue>;
 
 #[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
