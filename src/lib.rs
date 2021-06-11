@@ -58,23 +58,16 @@ pub struct Definitions {
 /// {}
 ///
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
-#[builder(setter(strip_option), default)]
-#[serde(default)]
-pub struct Properties {
-    #[serde(flatten)]
-    pub additional_properties: Option<PropertiesAdditional>
-}
-pub type PropertiesAdditional = HashMap<String, Box<JSONSchema>>;
+pub type Properties = HashMap<String, Box<JSONSchema>>;
 /// PatternProperties
 ///
 /// # Default
 ///
 /// {}
 ///
-pub type PatternProperties = HashMap<String, Option<serde_json::Value>>;
+pub type PatternProperties = HashMap<String, Box<JSONSchema>>;
 
-#[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 pub enum DependenciesSet {
     JSONSchema(Box<JSONSchema>),
     StringArray(StringArray),
