@@ -8,7 +8,7 @@
       "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
     ["@semantic-release/exec", {
-      "prepareCmd": "git checkout package-lock && git add . && git commit -m \"chore(release): add newly generated typings [skip ci]\""
+      "prepareCmd": "git checkout package-lock.json && git add . && git commit -m \"chore(release): add newly generated typings [skip ci]\""
     }],
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -35,7 +35,7 @@
       "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
     ["@semantic-release/exec", {
-      "prepareCmd": "git checkout package-lock && git add . && git commit -m \"chore(release): add newly generated typings\""
+      "prepareCmd": "git checkout package-lock.json && git add . && git commit -m \"chore(release): add newly generated typings\""
     }],
     "@semantic-release/changelog",
     "@semantic-release/git"
