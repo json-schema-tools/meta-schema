@@ -22,7 +22,7 @@ pub type NonNegativeInteger = i64;
 pub type NonNegativeIntegerDefaultZero = i64;
 pub type Pattern = String;
 pub type SchemaArray = Vec<JSONSchema>;
-#[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 #[serde(untagged)]
 pub enum Items {
     JSONSchema(JSONSchema),
@@ -76,7 +76,7 @@ pub struct PatternProperties {
     #[serde(flatten)]
     pub additional_properties: Option<JSONSchema>
 }
-#[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 #[serde(untagged)]
 pub enum DependenciesSet {
     JSONSchema(JSONSchema),
@@ -92,7 +92,7 @@ pub struct Dependencies {
 pub type Enum = Vec<AlwaysTrue>;
 pub type SimpleTypes = serde_json::Value;
 pub type ArrayOfSimpleTypes = Vec<SimpleTypes>;
-#[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 #[serde(untagged)]
 pub enum Type {
     SimpleTypes(SimpleTypes),
@@ -105,95 +105,95 @@ pub type ContentEncoding = String;
 #[builder(setter(strip_option), default)]
 #[serde(default)]
 pub struct JSONSchemaObject {
-    #[serde(rename="$id", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "$id", skip_serializing_if = "Option::is_none")]
     pub id: Option<Id>,
-    #[serde(rename="$schema", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "$schema", skip_serializing_if = "Option::is_none")]
     pub schema: Option<Schema>,
-    #[serde(rename="$ref", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "$ref", skip_serializing_if = "Option::is_none")]
     pub _ref: Option<Ref>,
-    #[serde(rename="$comment", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "$comment", skip_serializing_if = "Option::is_none")]
     pub comment: Option<Comment>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub title: Option<Title>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<Description>,
-    #[serde(rename="default", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "default", skip_serializing_if = "Option::is_none")]
     pub _default: Option<AlwaysTrue>,
-    #[serde(rename="readOnly", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "readOnly", skip_serializing_if = "Option::is_none")]
     pub read_only: Option<ReadOnly>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub examples: Option<Examples>,
-    #[serde(rename="multipleOf", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "multipleOf", skip_serializing_if = "Option::is_none")]
     pub multiple_of: Option<MultipleOf>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub maximum: Option<Maximum>,
-    #[serde(rename="exclusiveMaximum", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "exclusiveMaximum", skip_serializing_if = "Option::is_none")]
     pub exclusive_maximum: Option<ExclusiveMaximum>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub minimum: Option<Minimum>,
-    #[serde(rename="exclusiveMinimum", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "exclusiveMinimum", skip_serializing_if = "Option::is_none")]
     pub exclusive_minimum: Option<ExclusiveMinimum>,
-    #[serde(rename="maxLength", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "maxLength", skip_serializing_if = "Option::is_none")]
     pub max_length: Option<NonNegativeInteger>,
-    #[serde(rename="minLength", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "minLength", skip_serializing_if = "Option::is_none")]
     pub min_length: Option<NonNegativeIntegerDefaultZero>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub pattern: Option<Pattern>,
-    #[serde(rename="additionalItems", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "additionalItems", skip_serializing_if = "Option::is_none")]
     pub additional_items: Option<JSONSchema>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Items>,
-    #[serde(rename="maxItems", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "maxItems", skip_serializing_if = "Option::is_none")]
     pub max_items: Option<NonNegativeInteger>,
-    #[serde(rename="minItems", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "minItems", skip_serializing_if = "Option::is_none")]
     pub min_items: Option<NonNegativeIntegerDefaultZero>,
-    #[serde(rename="uniqueItems", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "uniqueItems", skip_serializing_if = "Option::is_none")]
     pub unique_items: Option<UniqueItems>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub contains: Option<JSONSchema>,
-    #[serde(rename="maxProperties", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "maxProperties", skip_serializing_if = "Option::is_none")]
     pub max_properties: Option<NonNegativeInteger>,
-    #[serde(rename="minProperties", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "minProperties", skip_serializing_if = "Option::is_none")]
     pub min_properties: Option<NonNegativeIntegerDefaultZero>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub required: Option<StringArray>,
-    #[serde(rename="additionalProperties", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "additionalProperties", skip_serializing_if = "Option::is_none")]
     pub additional_properties: Option<JSONSchema>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub definitions: Option<Definitions>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub properties: Option<Properties>,
-    #[serde(rename="patternProperties", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "patternProperties", skip_serializing_if = "Option::is_none")]
     pub pattern_properties: Option<PatternProperties>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub dependencies: Option<Dependencies>,
-    #[serde(rename="propertyNames", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "propertyNames", skip_serializing_if = "Option::is_none")]
     pub property_names: Option<JSONSchema>,
-    #[serde(rename="const", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "const", skip_serializing_if = "Option::is_none")]
     pub _const: Option<AlwaysTrue>,
-    #[serde(rename="enum", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "enum", skip_serializing_if = "Option::is_none")]
     pub _enum: Option<Enum>,
-    #[serde(rename="type", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub _type: Option<Type>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<Format>,
-    #[serde(rename="contentMediaType", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "contentMediaType", skip_serializing_if = "Option::is_none")]
     pub content_media_type: Option<ContentMediaType>,
-    #[serde(rename="contentEncoding", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "contentEncoding", skip_serializing_if = "Option::is_none")]
     pub content_encoding: Option<ContentEncoding>,
-    #[serde(rename="if", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "if", skip_serializing_if = "Option::is_none")]
     pub _if: Option<JSONSchema>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub then: Option<JSONSchema>,
-    #[serde(rename="else", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "else", skip_serializing_if = "Option::is_none")]
     pub _else: Option<JSONSchema>,
-    #[serde(rename="allOf", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "allOf", skip_serializing_if = "Option::is_none")]
     pub all_of: Option<SchemaArray>,
-    #[serde(rename="anyOf", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "anyOf", skip_serializing_if = "Option::is_none")]
     pub any_of: Option<SchemaArray>,
-    #[serde(rename="oneOf", skip_serializing_if("Option::is_none"))]
+    #[serde(rename = "oneOf", skip_serializing_if = "Option::is_none")]
     pub one_of: Option<SchemaArray>,
-    #[serde(skip_serializing_if("Option::is_none"))]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub not: Option<JSONSchema>,
 }
 /// JSONSchemaBoolean
@@ -201,7 +201,7 @@ pub struct JSONSchemaObject {
 /// Always valid if true. Never valid if false. Is constant.
 ///
 pub type JSONSchemaBoolean = bool;
-#[derive(Serialize, Deserialize, Clone, Debug, Eq, PartialEq)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 #[serde(untagged)]
 pub enum JSONSchema {
     JSONSchemaObject(JSONSchemaObject),
