@@ -1,3 +1,10 @@
+## [1.6.14](https://github.com/json-schema-tools/meta-schema/compare/1.6.13...1.6.14) (2021-06-17)
+
+
+### Bug Fixes
+
+* bump to new sem rel trans incl rust fixes ([9f79271](https://github.com/json-schema-tools/meta-schema/commit/9f79271a0d423b34ef55fc4239f917bac1eb411e))
+
 ## [1.6.13](https://github.com/json-schema-tools/meta-schema/compare/1.6.12...1.6.13) (2021-06-11)
 
 
