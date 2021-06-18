@@ -61,7 +61,7 @@ Dependencies = NewType("Dependencies", Mapping[Any, Any])
 
 Enum = NewType("Enum", List[AlwaysTrue])
 
-SimpleTypes = NewType("SimpleTypes", Any)
+SimpleTypes = NewType("SimpleTypes", Mapping[Any, Any])
 
 ArrayOfSimpleTypes = NewType("ArrayOfSimpleTypes", List[SimpleTypes])
 
