@@ -246,7 +246,7 @@
         },
         "simpleTypes": {
             "title": "simpleTypes",
-            "type": "object",
+            "type": "string",
             "enum": ["array", "boolean", "integer", "null", "number", "object", "string"]
         },
         "stringArray": {

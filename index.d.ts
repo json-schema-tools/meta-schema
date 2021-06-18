@@ -51,7 +51,7 @@ export interface PatternProperties { [key: string]: any; }
 export type DependenciesSet = JSONSchema | StringArray;
 export interface Dependencies { [key: string]: any; }
 export type Enum = AlwaysTrue[];
-export interface SimpleTypes { [key: string]: any; }
+export type SimpleTypes = "array" | "boolean" | "integer" | "null" | "number" | "object" | "string";
 export type ArrayOfSimpleTypes = SimpleTypes[];
 export type Type = SimpleTypes | ArrayOfSimpleTypes;
 export type Format = string;

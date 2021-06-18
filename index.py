@@ -3,6 +3,7 @@ from typing import Union
 from typing import Any
 from typing import List
 from typing import Mapping
+from enum import Enum
 from typing import TypedDict
 from typing import Optional
 
@@ -61,7 +62,14 @@ Dependencies = NewType("Dependencies", Mapping[Any, Any])
 
 Enum = NewType("Enum", List[AlwaysTrue])
 
-SimpleTypes = NewType("SimpleTypes", Mapping[Any, Any])
+class SimpleTypes(Enum):
+    Array = 0
+    Boolean = 1
+    Integer = 2
+    Null = 3
+    Number = 4
+    Object = 5
+    String = 6
 
 ArrayOfSimpleTypes = NewType("ArrayOfSimpleTypes", List[SimpleTypes])
 
