@@ -1,3 +1,10 @@
+## [1.6.17](https://github.com/json-schema-tools/meta-schema/compare/1.6.16...1.6.17) (2021-06-18)
+
+
+### Bug Fixes
+
+* update the appropriate schema ([089d5bb](https://github.com/json-schema-tools/meta-schema/commit/089d5bb282b390ef8879ffb59a6fc16cae9721fe))
+
 ## [1.6.16](https://github.com/json-schema-tools/meta-schema/compare/1.6.15...1.6.16) (2021-06-18)
 
 
