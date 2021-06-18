@@ -1,3 +1,10 @@
+## [1.6.15](https://github.com/json-schema-tools/meta-schema/compare/1.6.14...1.6.15) (2021-06-18)
+
+
+### Bug Fixes
+
+* missing type on simpleTypes ([428bfdf](https://github.com/json-schema-tools/meta-schema/commit/428bfdf5746d9dee03da6177b85c197b191302ea))
+
 ## [1.6.14](https://github.com/json-schema-tools/meta-schema/compare/1.6.13...1.6.14) (2021-06-17)
 
 
