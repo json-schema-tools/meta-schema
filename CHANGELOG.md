@@ -1,3 +1,10 @@
+## [1.6.16](https://github.com/json-schema-tools/meta-schema/compare/1.6.15...1.6.16) (2021-06-18)
+
+
+### Bug Fixes
+
+* update transpiler to fix rust cycles ([da21952](https://github.com/json-schema-tools/meta-schema/commit/da21952a92128ef5f1c20ebf78bb1681ac35ef38))
+
 ## [1.6.15](https://github.com/json-schema-tools/meta-schema/compare/1.6.14...1.6.15) (2021-06-18)
 
 
