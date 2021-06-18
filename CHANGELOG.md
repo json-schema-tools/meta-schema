@@ -1,3 +1,10 @@
+## [1.6.18](https://github.com/json-schema-tools/meta-schema/compare/1.6.17...1.6.18) (2021-06-18)
+
+
+### Bug Fixes
+
+* no brain mistakes ([a19c6fb](https://github.com/json-schema-tools/meta-schema/commit/a19c6fbc2e1401a9c8ab291ba80c170afce03a87))
+
 ## [1.6.17](https://github.com/json-schema-tools/meta-schema/compare/1.6.16...1.6.17) (2021-06-18)
 
 
