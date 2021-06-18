@@ -3,6 +3,7 @@ extern crate serde_json;
 extern crate derive_builder;
 
 use serde::{Serialize, Deserialize};
+use std::collections::HashMap;
 use derive_builder::Builder;
 pub type Id = String;
 pub type Schema = String;
@@ -25,7 +26,7 @@ pub type SchemaArray = Vec<JSONSchema>;
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 #[serde(untagged)]
 pub enum Items {
-    JSONSchema(JSONSchema),
+    JSONSchema(Box<JSONSchema>),
     SchemaArray(SchemaArray),
 }
 pub type UniqueItems = bool;
@@ -43,52 +44,28 @@ pub type StringArray = Vec<StringDoaGddGA>;
 ///
 /// {}
 ///
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
-#[builder(setter(strip_option), default)]
-#[serde(default)]
-pub struct Definitions {
-    #[serde(flatten)]
-    pub additional_properties: Option<JSONSchema>
-}
+pub type Definitions = HashMap<String, JSONSchema>;
 /// Properties
 ///
 /// # Default
 ///
 /// {}
 ///
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
-#[builder(setter(strip_option), default)]
-#[serde(default)]
-pub struct Properties {
-    #[serde(flatten)]
-    pub additional_properties: Option<JSONSchema>
-}
+pub type Properties = HashMap<String, JSONSchema>;
 /// PatternProperties
 ///
 /// # Default
 ///
 /// {}
 ///
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
-#[builder(setter(strip_option), default)]
-#[serde(default)]
-pub struct PatternProperties {
-    #[serde(flatten)]
-    pub additional_properties: Option<JSONSchema>
-}
+pub type PatternProperties = HashMap<String, JSONSchema>;
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 #[serde(untagged)]
 pub enum DependenciesSet {
-    JSONSchema(JSONSchema),
+    JSONSchema(Box<JSONSchema>),
     StringArray(StringArray),
 }
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
-#[builder(setter(strip_option), default)]
-#[serde(default)]
-pub struct Dependencies {
-    #[serde(flatten)]
-    pub additional_properties: Option<DependenciesSet>
-}
+pub type Dependencies = HashMap<String, DependenciesSet>;
 pub type Enum = Vec<AlwaysTrue>;
 pub type SimpleTypes = serde_json::Value;
 pub type ArrayOfSimpleTypes = Vec<SimpleTypes>;
@@ -140,7 +117,7 @@ pub struct JSONSchemaObject {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pattern: Option<Pattern>,
     #[serde(rename = "additionalItems", skip_serializing_if = "Option::is_none")]
-    pub additional_items: Option<JSONSchema>,
+    pub additional_items: Option<Box<JSONSchema>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<Items>,
     #[serde(rename = "maxItems", skip_serializing_if = "Option::is_none")]
@@ -150,7 +127,7 @@ pub struct JSONSchemaObject {
     #[serde(rename = "uniqueItems", skip_serializing_if = "Option::is_none")]
     pub unique_items: Option<UniqueItems>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub contains: Option<JSONSchema>,
+    pub contains: Option<Box<JSONSchema>>,
     #[serde(rename = "maxProperties", skip_serializing_if = "Option::is_none")]
     pub max_properties: Option<NonNegativeInteger>,
     #[serde(rename = "minProperties", skip_serializing_if = "Option::is_none")]
@@ -158,7 +135,7 @@ pub struct JSONSchemaObject {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub required: Option<StringArray>,
     #[serde(rename = "additionalProperties", skip_serializing_if = "Option::is_none")]
-    pub additional_properties: Option<JSONSchema>,
+    pub additional_properties: Option<Box<JSONSchema>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub definitions: Option<Definitions>,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -168,7 +145,7 @@ pub struct JSONSchemaObject {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dependencies: Option<Dependencies>,
     #[serde(rename = "propertyNames", skip_serializing_if = "Option::is_none")]
-    pub property_names: Option<JSONSchema>,
+    pub property_names: Option<Box<JSONSchema>>,
     #[serde(rename = "const", skip_serializing_if = "Option::is_none")]
     pub _const: Option<AlwaysTrue>,
     #[serde(rename = "enum", skip_serializing_if = "Option::is_none")]
@@ -182,11 +159,11 @@ pub struct JSONSchemaObject {
     #[serde(rename = "contentEncoding", skip_serializing_if = "Option::is_none")]
     pub content_encoding: Option<ContentEncoding>,
     #[serde(rename = "if", skip_serializing_if = "Option::is_none")]
-    pub _if: Option<JSONSchema>,
+    pub _if: Option<Box<JSONSchema>>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub then: Option<JSONSchema>,
+    pub then: Option<Box<JSONSchema>>,
     #[serde(rename = "else", skip_serializing_if = "Option::is_none")]
-    pub _else: Option<JSONSchema>,
+    pub _else: Option<Box<JSONSchema>>,
     #[serde(rename = "allOf", skip_serializing_if = "Option::is_none")]
     pub all_of: Option<SchemaArray>,
     #[serde(rename = "anyOf", skip_serializing_if = "Option::is_none")]
@@ -194,7 +171,7 @@ pub struct JSONSchemaObject {
     #[serde(rename = "oneOf", skip_serializing_if = "Option::is_none")]
     pub one_of: Option<SchemaArray>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub not: Option<JSONSchema>,
+    pub not: Option<Box<JSONSchema>>,
 }
 /// JSONSchemaBoolean
 ///
