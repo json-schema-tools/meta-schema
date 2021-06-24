@@ -91,11 +91,9 @@ pub enum Type {
     SimpleTypes(SimpleTypes),
     ArrayOfSimpleTypes(ArrayOfSimpleTypes),
 }
-
 pub type Format = String;
 pub type ContentMediaType = String;
 pub type ContentEncoding = String;
-
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Builder, Default)]
 #[builder(setter(strip_option), default)]
 #[serde(default)]
