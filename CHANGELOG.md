@@ -1,3 +1,11 @@
+## [1.6.19](https://github.com/json-schema-tools/meta-schema/compare/1.6.18...1.6.19) (2021-06-24)
+
+
+### Bug Fixes
+
+* add rust tests and update readme ([444f92b](https://github.com/json-schema-tools/meta-schema/commit/444f92b42a7402175bc440b923294549b367e5e7))
+* remove additional whitespace ([4688690](https://github.com/json-schema-tools/meta-schema/commit/4688690b4624d940ba0fc528c4603dd0b801761e))
+
 ## [1.6.18](https://github.com/json-schema-tools/meta-schema/compare/1.6.17...1.6.18) (2021-06-18)
 
 
