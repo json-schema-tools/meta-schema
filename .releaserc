@@ -4,7 +4,7 @@
   "plugins": [
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
-      "schemaLocation": "./src/schema.json",
+      "schemaLocation": "src/schema.json",
       "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
     ["@semantic-release/exec", {
@@ -20,7 +20,7 @@
   "verifyConditions": [
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
-      "schemaLocation": "./src/schema.json",
+      "schemaLocation": "src/schema.json",
       "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
     "@semantic-release/changelog",
@@ -31,7 +31,7 @@
   "prepare": [
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
-      "schemaLocation": "./src/schema.json",
+      "schemaLocation": "src/schema.json",
       "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
     ["@semantic-release/exec", {
