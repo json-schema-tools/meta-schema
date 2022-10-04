@@ -86,7 +86,7 @@ checksum = "dd25036021b0de88a0aff6b850051563c6516d0bf53f8638938edbb9de732736"
 
 [[package]]
 name = "json_schema"
-version = "1.6.18"
+version = "1.6.19"
 dependencies = [
  "derive_builder",
  "serde",

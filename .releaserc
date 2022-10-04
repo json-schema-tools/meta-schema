@@ -3,7 +3,7 @@
   "branch": "master",
   "plugins": [
     ["@json-schema-tools/semantic-release-transpiler", {
-      "outpath": "./",
+      "outpath": ".",
       "schemaLocation": "src/schema.json",
       "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
@@ -19,7 +19,7 @@
   ],
   "verifyConditions": [
     ["@json-schema-tools/semantic-release-transpiler", {
-      "outpath": "./",
+      "outpath": ".",
       "schemaLocation": "src/schema.json",
       "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
@@ -30,7 +30,7 @@
   ],
   "prepare": [
     ["@json-schema-tools/semantic-release-transpiler", {
-      "outpath": "./",
+      "outpath": ".",
       "schemaLocation": "src/schema.json",
       "languages": { "ts": true, "go": true, "rs": true, "py": true }
     }],
