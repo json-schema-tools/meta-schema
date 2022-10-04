@@ -1,3 +1,17 @@
+# [1.7.0](https://github.com/json-schema-tools/meta-schema/compare/1.6.19...1.7.0) (2022-10-04)
+
+
+### Bug Fixes
+
+* try something else for the build ([0e64137](https://github.com/json-schema-tools/meta-schema/commit/0e641375a4126e309fc42e567469e43a013bb2e6))
+* try to get build working on ci ([4f04e7d](https://github.com/json-schema-tools/meta-schema/commit/4f04e7d6a6b574fb98200b0b6ad08d81ed650d57))
+* update node version in circle deploy ([fd7f8b5](https://github.com/json-schema-tools/meta-schema/commit/fd7f8b5f5729efaf60bb001c941bad7dcbc89930))
+
+
+### Features
+
+* bump versions to latest ([df49b7b](https://github.com/json-schema-tools/meta-schema/commit/df49b7b0cda522e536912d4072507854bddcedb5))
+
 ## [1.6.19](https://github.com/json-schema-tools/meta-schema/compare/1.6.18...1.6.19) (2021-06-24)
 
 
