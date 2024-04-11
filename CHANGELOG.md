@@ -1,3 +1,20 @@
+## [1.7.1](https://github.com/json-schema-tools/meta-schema/compare/1.7.0...1.7.1) (2024-04-11)
+
+
+### Bug Fixes
+
+* bump to node 20 ([1fa64b5](https://github.com/json-schema-tools/meta-schema/commit/1fa64b56eb4612f916345bd2d17892cea1df50c0))
+* more wip ([5624dd2](https://github.com/json-schema-tools/meta-schema/commit/5624dd235fe6a59f71e0c281d2ed41e6f4ece22e))
+* wip ([4bff15e](https://github.com/json-schema-tools/meta-schema/commit/4bff15e0f486ebec78777938270a0a5c21d0ba8e))
+* wip ([e17d41b](https://github.com/json-schema-tools/meta-schema/commit/e17d41bfcd2ff431419ff8d68629447fc05381c5))
+* wip ([68cbbfd](https://github.com/json-schema-tools/meta-schema/commit/68cbbfd554f0dc1596806629d8d6c561f1668f96))
+* wip ([8f76786](https://github.com/json-schema-tools/meta-schema/commit/8f7678647657977f0c11b9acedc6689ad8c791b0))
+* wip ([f13ca5e](https://github.com/json-schema-tools/meta-schema/commit/f13ca5e5672c2590d3be5ac546e433a481c62a79))
+* wip ([341dfd7](https://github.com/json-schema-tools/meta-schema/commit/341dfd75096dda74d88152472107b12cc306b92f))
+* wip ([97cf7cd](https://github.com/json-schema-tools/meta-schema/commit/97cf7cd42d4b5402ecb7492623017c93d571b5f7))
+* wip ([557df9d](https://github.com/json-schema-tools/meta-schema/commit/557df9ddad3d092aaa9b16db93275fb7e76b7c1d))
+* wip ci ([1402f7c](https://github.com/json-schema-tools/meta-schema/commit/1402f7cdea7150412141f8b050452079fb1238ea))
+
 # [1.7.0](https://github.com/json-schema-tools/meta-schema/compare/1.6.19...1.7.0) (2022-10-04)
 
 
