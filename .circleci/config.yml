@@ -40,7 +40,7 @@ jobs:
   release:
     <<: *defaults
     docker:
-      - image: cimg/python:2.7
+      - image: cimg/python:2.7-node
     steps:
       - checkout
       - run: npm install
