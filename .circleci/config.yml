@@ -43,11 +43,6 @@ jobs:
       - image: cimg/python:2.7
     steps:
       - checkout
-      - run:
-          name: "Update Node.js and npm"
-          command: |
-            curl -sSL "https://nodejs.org/dist/v20.12.1/node-v20.12.1-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v20.12.1-linux-x64/bin/node
-            curl https://www.npmjs.com/install.sh | sudo bash
       - run: npm install
       - run: ./node_modules/.bin/semantic-release
       - run:
