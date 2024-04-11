@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/json-schema-tools/meta-schema/compare/1.7.2...1.7.3) (2024-04-11)
+
+
+### Bug Fixes
+
+* wip ([e7e44ef](https://github.com/json-schema-tools/meta-schema/commit/e7e44ef7fa7090cb3f1014748df6cea0d4d05e3c))
+
 ## [1.7.2](https://github.com/json-schema-tools/meta-schema/compare/1.7.1...1.7.2) (2024-04-11)
 
 
