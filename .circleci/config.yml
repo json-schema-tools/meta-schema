@@ -44,17 +44,18 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install nodenv and Node.js
+          name: Swap node versions
           command: |
-            git clone https://github.com/nodenv/nodenv.git ~/.nodenv
-            echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
-            echo 'eval "$(nodenv init -)"' >> ~/.bashrc
-            exec $SHELL
-            git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
-            nodenv install 20.12.1
-            nodenv local 20.12.1
-            nodenv global 20.12.1
-            nodenv rehash
+            set +e
+            wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+            nvm install v20.12
+            nvm alias default 20.12
+
+            echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
+            echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
       # Verify Node.js version
       - run:
           name: Verify Node.js version
