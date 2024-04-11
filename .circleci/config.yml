@@ -40,14 +40,15 @@ jobs:
   release:
     <<: *defaults
     docker:
-      - image: cimg/node:20.12.1
+      - image: cimg/aws:2024.03
     steps:
       - checkout
       - run:
           name: install python 2.7
           command: |
             sudo apt-get update
-            sudo apt-get install -y python2.7 python-pip
+            sudo apt-get install -y python2.7
+            python2.7
       # Verify Node.js version
       - run:
           name: Verify Python installation
