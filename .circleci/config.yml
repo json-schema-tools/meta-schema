@@ -40,7 +40,7 @@ jobs:
   release:
     <<: *defaults
     docker:
-      - image: circleci/python:2.7-stretch
+      - image: cimg/python:2.7-stretch
     steps:
       - checkout
       - run:
