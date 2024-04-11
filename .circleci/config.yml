@@ -43,6 +43,15 @@ jobs:
       - image: cimg/python:2.7-node
     steps:
       - checkout
+      - run:
+          name: Install nodenv and Node.js
+          command: |
+            git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+            echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
+            echo 'eval "$(nodenv init -)"' >> ~/.bashrc
+            exec $SHELL
+            git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
+            nodenv install 20.12.1
       - run: npm install
       - run: ./node_modules/.bin/semantic-release
       - run:
