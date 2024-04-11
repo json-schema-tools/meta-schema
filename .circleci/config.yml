@@ -52,6 +52,9 @@ jobs:
             exec $SHELL
             git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
             nodenv install 20.12.1
+            nodenv local 20.12.1
+            nodenv global 20.12.1
+            nodenv rehash
       # Verify Node.js version
       - run:
           name: Verify Node.js version
