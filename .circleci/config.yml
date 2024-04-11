@@ -43,22 +43,8 @@ jobs:
       - image: cimg/aws:2024.03
     steps:
       - checkout
-      - run:
-          name: install python 2.7
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y python2.7
-            python2.7
-      # Verify Node.js version
-      - run:
-          name: Verify Python installation
-          command: |
-            python2.7 --version
       - run: npm install
       - run: ./node_modules/.bin/semantic-release
-      - run:
-          name: Install awscli
-          command: /usr/bin/pip install awscli
       - run:
           name: Deploy to S3
           command: aws s3 mv src/schema.json s3://meta.json-schema.tools/latest.json
