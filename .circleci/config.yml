@@ -52,6 +52,11 @@ jobs:
             exec $SHELL
             git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
             nodenv install 20.12.1
+      # Verify Node.js version
+      - run:
+          name: Verify Node.js version
+          command: |
+            node --version
       - run: npm install
       - run: ./node_modules/.bin/semantic-release
       - run:
