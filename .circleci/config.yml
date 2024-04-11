@@ -52,12 +52,12 @@ jobs:
       - run:
           name: Verify Python installation
           command: |
-            python --version
+            python2.7 --version
       - run: npm install
       - run: ./node_modules/.bin/semantic-release
       - run:
           name: Install awscli
-          command: sudo pip install awscli
+          command: /usr/bin/pip install awscli
       - run:
           name: Deploy to S3
           command: aws s3 mv src/schema.json s3://meta.json-schema.tools/latest.json
