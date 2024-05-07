@@ -1,3 +1,11 @@
+## [1.7.5](https://github.com/json-schema-tools/meta-schema/compare/1.7.4...1.7.5) (2024-05-07)
+
+
+### Bug Fixes
+
+* bump to new transpiler ([b0c63ba](https://github.com/json-schema-tools/meta-schema/commit/b0c63ba5b63d4cbe43a4ac4980600db13ed0afad))
+* transpiler bump again ([a2ae9d9](https://github.com/json-schema-tools/meta-schema/commit/a2ae9d9e4c919f95e3f8b3b528b2a9fb6781ec74))
+
 ## [1.7.4](https://github.com/json-schema-tools/meta-schema/compare/1.7.3...1.7.4) (2024-04-11)
 
 
