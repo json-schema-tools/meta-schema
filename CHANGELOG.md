@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/json-schema-tools/meta-schema/compare/1.7.5...1.8.0) (2025-09-23)
+
+
+### Bug Fixes
+
+* rename zig package ([8e07311](https://github.com/json-schema-tools/meta-schema/commit/8e0731146411f54cbbf0dcefb170edb03d4b1133))
+
+
+### Features
+
+* Add manually written Zig types and parsing methods ([6aee486](https://github.com/json-schema-tools/meta-schema/commit/6aee486ed36cc9c52fc4fbc1833b60ca6362da7c))
+
 ## [1.7.5](https://github.com/json-schema-tools/meta-schema/compare/1.7.4...1.7.5) (2024-05-07)
 
 
