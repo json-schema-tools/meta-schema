@@ -4,7 +4,7 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const meta_schema = b.addModule("meta_schema", .{
+    const json_schema_tools_meta_schema = b.addModule("json_schema_tools_meta_schema", .{
         .root_source_file = .{ .cwd_relative = "zig/schema.zig" },
     });
 
@@ -13,7 +13,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    tests_module.addImport("meta_schema", meta_schema);
+    tests_module.addImport("json_schema_tools_meta_schema", json_schema_tools_meta_schema);
 
     const unit_tests = b.addTest(.{
         .root_module = tests_module,

@@ -44,8 +44,8 @@ Add this repository as a dependency in your `build.zig.zon` and wire the module:
 
 ```zig
 const meta_dep = b.dependency("meta-schema", .{});
-const meta_schema = meta_dep.module("meta_schema");
-your_module.addImport("meta_schema", meta_schema);
+const meta_schema = meta_dep.module("json_schema_tools_meta_schema");
+your_module.addImport("json_schema_tools_meta_schema", meta_schema);
 ```
 
-Then `@import("meta_schema")` from your code to access the types and helpers.
+Then `@import("json_schema_tools_meta_schema")` from your code to access the types and helpers.
