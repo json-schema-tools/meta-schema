@@ -1,0 +1,133 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-master
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: >-
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    environment:
+      name: release
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      actions: write
+      id-token: write
+    steps:
+      - name: Create release PR
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target-branch: master
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      # PR events created with GITHUB_TOKEN do not start CI automatically.
+      - name: Run CI on the release PR
+        if: steps.release.outputs.pr != ''
+        uses: actions/github-script@v7
+        env:
+          RELEASE_PR: ${{ steps.release.outputs.pr }}
+        with:
+          script: |
+            const pr = JSON.parse(process.env.RELEASE_PR);
+            await github.rest.actions.createWorkflowDispatch({
+              ...context.repo,
+              workflow_id: 'ci.yml',
+              ref: pr.headBranchName
+            });
+
+      - name: Checkout released version
+        if: steps.release.outputs.release_created == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.release.outputs.tag_name }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        if: steps.release.outputs.release_created == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: npm
+
+      - name: Use npm with trusted publishing support
+        if: steps.release.outputs.release_created == 'true'
+        run: npm install --global npm@11
+
+      - name: Install dependencies
+        if: steps.release.outputs.release_created == 'true'
+        run: npm ci
+
+      - name: Build
+        if: steps.release.outputs.release_created == 'true'
+        run: npm run build
+
+      - name: Test released version
+        if: steps.release.outputs.release_created == 'true'
+        run: npm test -- --runInBand
+
+      - name: Test generated Rust bindings
+        if: steps.release.outputs.release_created == 'true'
+        run: cargo test
+
+      - name: Upload generated release assets
+        if: steps.release.outputs.release_created == 'true'
+        uses: actions/github-script@v7
+        env:
+          RELEASE_ID: ${{ steps.release.outputs.id }}
+        with:
+          script: |
+            const fs = require('fs');
+            for (const name of ['index.js', 'index.d.ts', 'index.py', 'json_schema.go', 'schema.json']) {
+              await github.rest.repos.uploadReleaseAsset({
+                ...context.repo,
+                release_id: Number(process.env.RELEASE_ID),
+                name,
+                data: fs.readFileSync(name)
+              });
+            }
+
+      - name: Publish
+        if: steps.release.outputs.release_created == 'true'
+        run: npm publish --access public
+
+      - name: Authenticate to crates.io
+        if: steps.release.outputs.release_created == 'true'
+        id: crates
+        uses: rust-lang/crates-io-auth-action@v1
+
+      - name: Publish Rust crate
+        if: steps.release.outputs.release_created == 'true'
+        run: cargo publish --locked --allow-dirty
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ steps.crates.outputs.token }}
+
+      - name: Authenticate to AWS
+        if: steps.release.outputs.release_created == 'true'
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_RELEASE_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Deploy schema and invalidate CDN
+        if: steps.release.outputs.release_created == 'true'
+        run: |
+          aws s3 cp src/schema.json s3://meta.json-schema.tools/latest.json
+          aws cloudfront create-invalidation --distribution-id E205UL06VEMZBZ --paths '/*'

@@ -1,74 +1,38 @@
 # Releasing
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14) [RFC2119](https://tools.ietf.org/html/rfc2119) [RFC8174](https://tools.ietf.org/html/rfc8174) when, and only when, they appear in all capitals, as shown here.
+GitHub Actions builds the generated TypeScript, Go, Rust, and Python bindings,
+checks that they match the committed source, tests the npm schema exports, and
+runs the Rust integration tests. Jest enforces coverage; `npm run coverage:bump`
+uses jest-it-up after `npm test` to raise thresholds.
 
-This document is licensed under [The Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
+After successful master CI, release-please opens a release PR for `fix:` and
+`feat:` commits. Merge the release PR to create the bare version tag, regenerate
+and test that version, upload the language bindings to the GitHub release, and
+publish to npm and crates.io. Release PRs receive an explicitly dispatched CI
+matrix because GitHub's built-in token does not trigger PR workflows.
 
-When using the name 'version' we mean the versioning scheme described in [VERSIONING.md](VERSIONING.md)
+When changing `src/schema.json`, run `npm run build` and commit the resulting
+bindings with the schema. Release-please also updates Cargo.toml's version.
+Cargo tests refresh the crate's own version in Cargo.lock before publication.
+The migration baseline is the existing 1.8.0 release.
 
-## Introduction
+## One-time setup
 
-This document is to describe the release pipeline, which is taking the result of the artifacts created according to [BUILDING.md](BUILDING.md) and publish a release to the various release targets for the project.
+- Create the `release` environment restricted to the master branch.
+- Allow GitHub Actions to create and approve PRs; require the CI test matrix
+  instead of CircleCI checks, preserving the other branch protections.
+- Configure npm trusted publishing for `@json-schema-tools/meta-schema`, owner
+  `json-schema-tools`, repo `meta-schema`, workflow `release.yml`, environment
+  `release`, allowing direct npm publish.
+- Configure crates.io trusted publishing for the existing `json_schema` crate
+  with the same repository, workflow, and environment.
+- Set the environment variable `AWS_RELEASE_ROLE_ARN` to an IAM role trusting
+  GitHub OIDC for `repo:json-schema-tools/meta-schema:environment:release`.
+  Permit only writing `s3://meta.json-schema.tools/latest.json` and creating
+  invalidations for distribution `E205UL06VEMZBZ`.
 
-We propose:
- - a set of release targets that are allowable
- - a pipeline for handling the release folder's artifacts
-
-It is NOT the purpose of this document to describe how a project might create a build, NOR is it describing a strcture in which projects MUST write build artifacts to. It is describing the structure of the releases themselves.
-
-## Release Pipeline
-
-Each Pristine project MUST provide a `bin/release.sh` script which will make a release to the various targets.
-
-Each target may be scripted directly into the `bin/release.sh` shell script, or it may be broken down into files following the pattern:`./bin/release.{target}.sh`.
-
-While the `.sh` extension is mandatory, the scripts may be written with one of the following headers:
- - `#!bin/sh`
- - `#!bin/node`
- - `#!/usr/bin/env node`
-
-### Create a build from current branch
-
-Process is outlined in [BUILDING.md](BUILDING.md)
-
-1. Clean the build directory
-2. run: `bin/build.{target}.{ext}`
-
-### Bump the version of the project
-
-Projects SHOULD automate the version bump following [CONVENTIONAL_COMMITS.md](CONVENTIONAL_COMMITS.md).
-
-### Generate Changelog
-
-Projects SHOULD use generated changelogs from following [CONVENTIONAL_COMMITS.md](CONVENTIONAL_COMMITS.md).
-
-### Commit the bump + changelog update
-
-A project MUST generate a commit with the changes.
-
-### Tag the commit with the bumped version
-
-A project MUST be tagged with the semantic versioning scheme from [VERSIONING.md](VERSIONING.md).
-
-### Sign the releases.
-
- - MUST be a pgp signature
- - MUST be the same pgp key as is registered with Github
- - MUST be a detached ascii-armored (.asc) signature 
- - All files in the build folder MUST have an associated signature file
-
-### Push changelog & version bump
-
-### Run Release Targets
-
-For each of the desired release targets, prepare and push the release.
-
-#### Example Release Targets
-
-1. Github
-2. Docker Hub
-
-## Resources
-
-- [semantic-release](https://github.com/semantic-release/semantic-release)
-- [Conventional Commits](https://conventionalcommits.org/)
+The workflow deploys the source schema to the existing S3 location and
+invalidates the existing CloudFront distribution after publication. All three
+services use short-lived credentials; no npm, crates.io, or AWS key is stored
+in GitHub. Node 22 and npm 11 supply npm trusted publishing support.
+Disable the legacy CircleCI project after merging.
