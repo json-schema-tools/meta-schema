@@ -124,7 +124,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ vars.AWS_RELEASE_ROLE_ARN }}
-          aws-region: us-east-1
+          aws-region: us-west-2
 
       - name: Deploy schema and invalidate CDN
         if: steps.release.outputs.release_created == 'true'
