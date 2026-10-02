@@ -10,6 +10,13 @@
 
 * Add manually written Zig types and parsing methods ([6aee486](https://github.com/json-schema-tools/meta-schema/commit/6aee486ed36cc9c52fc4fbc1833b60ca6362da7c))
 
+## [1.8.1](https://github.com/json-schema-tools/meta-schema/compare/1.8.0...1.8.1) (2026-10-02)
+
+
+### Bug Fixes
+
+* align schema generation with clean CI installs ([3424456](https://github.com/json-schema-tools/meta-schema/commit/34244564b0a96326431354cb5555ff65cf2644ab))
+
 ## [1.7.5](https://github.com/json-schema-tools/meta-schema/compare/1.7.4...1.7.5) (2024-05-07)
 
 
