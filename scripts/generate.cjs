@@ -11,5 +11,6 @@ const options = {
   await prepare(options, {
     nextRelease: { version: pkg.version === '0.0.0-development' ? manifest['.'] : pkg.version }
   });
-  require('fs').copyFileSync('src/schema.json', 'schema.json');
+  const fs = require('fs');
+  fs.writeFileSync('schema.json', fs.readFileSync('src/schema.json', 'utf8').trimEnd() + '\n');
 })().catch(error => { console.error(error); process.exitCode = 1; });
