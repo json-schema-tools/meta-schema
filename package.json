@@ -1,6 +1,6 @@
 {
   "name": "@json-schema-tools/meta-schema",
-  "version": "0.0.0-development",
+  "version": "1.8.1",
   "description": "JSON Schema Meta Schema & Generated types for typescript, rust, golang and python",
   "main": "index.js",
   "bugs": {
