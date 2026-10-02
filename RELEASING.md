@@ -36,3 +36,7 @@ invalidates the existing CloudFront distribution after publication. All three
 services use short-lived credentials; no npm, crates.io, or AWS key is stored
 in GitHub. Node 22 and npm 11 supply npm trusted publishing support.
 Disable the legacy CircleCI project after merging.
+
+## Shared workflows
+
+CI and release execution is maintained in [foundation](https://github.com/json-schema-tools/foundation). Entry points pin a reviewed foundation commit; update both workflow pins together to adopt changes. Package scripts, coverage baselines and release-please metadata stay here. Trusted publishing continues to use this repository’s `release.yml` and `release` environment.
