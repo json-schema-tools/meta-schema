@@ -23,7 +23,7 @@ jobs:
       release-assets: '["index.js", "index.d.ts", "index.py", "json_schema.go", "schema.json"]'
       deploy-schema: true
       schema-destination: s3://meta.json-schema.tools/latest.json
-      cloudfront-distribution: E205UL06VEMZBZ
+      cloudfront-distribution: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 'on':
   workflow_run:
     workflows:
