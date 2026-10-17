@@ -50,6 +50,11 @@
           "type": "boolean",
           "default": false
         },
+        "writeOnly": {
+          "title": "writeOnly",
+          "type": "boolean",
+          "default": false
+        },
         "examples": {
           "title": "examples",
           "type": "array",

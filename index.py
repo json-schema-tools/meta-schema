@@ -22,6 +22,8 @@ AlwaysTrue = NewType("AlwaysTrue", Any)
 
 ReadOnly = NewType("ReadOnly", bool)
 
+WriteOnly = NewType("WriteOnly", bool)
+
 Examples = NewType("Examples", List[AlwaysTrue])
 
 MultipleOf = NewType("MultipleOf", float)
@@ -90,6 +92,7 @@ class JSONSchemaObject(TypedDict):
     description: Optional[Description]
     default: Optional[AlwaysTrue]
     readOnly: Optional[ReadOnly]
+    writeOnly: Optional[WriteOnly]
     examples: Optional[Examples]
     multipleOf: Optional[MultipleOf]
     maximum: Optional[Maximum]
