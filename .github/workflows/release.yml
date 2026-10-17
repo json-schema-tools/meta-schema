@@ -8,9 +8,10 @@ jobs:
   release:
     if: github.event.workflow_run.event == 'push' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_repository.full_name
       == github.repository
-    uses: json-schema-tools/foundation/.github/workflows/release.yml@53fa8e28290826e11e526e209e535483111511b5 # feat: accept CLOUDFRONT_DISTRIBUTION_ID as a secret
+    uses: json-schema-tools/foundation/.github/workflows/release.yml@8efed1471e2e9121b06f897ee4c0f3d4f6f1c6f8 # v1.3.0
     secrets:
       CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+      CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
     permissions:
       contents: write
       pull-requests: write
