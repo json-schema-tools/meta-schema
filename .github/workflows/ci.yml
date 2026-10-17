@@ -1,49 +1,24 @@
 name: CI
-
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
-  workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
   test:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [20.x, 22.x]
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: npm
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Verify generated bindings are committed
-        run: git diff --exit-code -- index.js index.d.ts index.py json_schema.go schema.json src/index.ts src/lib.rs
-      - name: Test generated Rust bindings
-        run: cargo test
-      - name: Test
-        run: npm test -- --runInBand
-
+    uses: json-schema-tools/foundation/.github/workflows/node-ci.yml@b9a036e0b64a3fd9982d0eab904f5cb1227625df # v1.0.0
+    with:
+      build-command: npm run build
+      post-build-command: git diff --exit-code -- index.js index.d.ts index.py json_schema.go schema.json src/index.ts src/lib.rs
+      test-command: npm test -- --runInBand
+      rust-tests: true
   commitlint:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    uses: json-schema-tools/foundation/.github/workflows/commitlint.yml@b9a036e0b64a3fd9982d0eab904f5cb1227625df # v1.0.0
     permissions:
       contents: read
       pull-requests: read
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Check commit messages
-        uses: wagoid/commitlint-github-action@v6
+'on':
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+  workflow_dispatch: null
