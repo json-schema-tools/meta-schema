@@ -10,6 +10,13 @@
 
 * Add manually written Zig types and parsing methods ([6aee486](https://github.com/json-schema-tools/meta-schema/commit/6aee486ed36cc9c52fc4fbc1833b60ca6362da7c))
 
+## [1.8.2](https://github.com/json-schema-tools/meta-schema/compare/1.8.1...1.8.2) (2026-10-17)
+
+
+### Bug Fixes
+
+* pass CLOUDFRONT_DISTRIBUTION_ID via secrets instead of with ([#243](https://github.com/json-schema-tools/meta-schema/issues/243)) ([dcbf3d6](https://github.com/json-schema-tools/meta-schema/commit/dcbf3d6f8d91a6a1b0dbf760595a085c4650a608))
+
 ## [1.8.1](https://github.com/json-schema-tools/meta-schema/compare/1.8.0...1.8.1) (2026-10-16)
 
 
