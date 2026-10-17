@@ -10,6 +10,13 @@
 
 * Add manually written Zig types and parsing methods ([6aee486](https://github.com/json-schema-tools/meta-schema/commit/6aee486ed36cc9c52fc4fbc1833b60ca6362da7c))
 
+## [1.8.3](https://github.com/json-schema-tools/meta-schema/compare/1.8.2...1.8.3) (2026-10-17)
+
+
+### Bug Fixes
+
+* add writeOnly keyword; wire up CARGO_REGISTRY_TOKEN ([#245](https://github.com/json-schema-tools/meta-schema/issues/245)) ([2b80410](https://github.com/json-schema-tools/meta-schema/commit/2b8041020f08e8e1396ca9069d5113ad3b0c9bfc))
+
 ## [1.8.2](https://github.com/json-schema-tools/meta-schema/compare/1.8.1...1.8.2) (2026-10-17)
 
 
