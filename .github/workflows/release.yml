@@ -8,7 +8,9 @@ jobs:
   release:
     if: github.event.workflow_run.event == 'push' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_repository.full_name
       == github.repository
-    uses: json-schema-tools/foundation/.github/workflows/release.yml@b9a036e0b64a3fd9982d0eab904f5cb1227625df # v1.0.0
+    uses: json-schema-tools/foundation/.github/workflows/release.yml@53fa8e28290826e11e526e209e535483111511b5 # feat: accept CLOUDFRONT_DISTRIBUTION_ID as a secret
+    secrets:
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
     permissions:
       contents: write
       pull-requests: write
@@ -23,7 +25,6 @@ jobs:
       release-assets: '["index.js", "index.d.ts", "index.py", "json_schema.go", "schema.json"]'
       deploy-schema: true
       schema-destination: s3://meta.json-schema.tools/latest.json
-      cloudfront-distribution: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 'on':
   workflow_run:
     workflows:
